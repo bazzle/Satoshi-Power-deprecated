@@ -1,16 +1,9 @@
 const container = document.querySelector('.currency-grid');
 const tickerFetchUrl = "https://blockchain.info/ticker";
 
-function createCompareItem(){
-    const compareItem = document.createElement('div');
-    compareItem.innerHTML = 'This is an item';
-    compareItem.classList.add('compare-item');
-    container.append(compareItem);
-};
-
 let btcData = {};
 let currencyList = [];
-let currenciesSmallerUnit = [];
+let currenciesSmallerUnit = ['USD','GBP','EUR'];
 
 // Fetch data, populate btcData
 function fetchData(){
@@ -29,31 +22,44 @@ function fetchData(){
     })
 }
 
+// Smallest unit
+function getSmallestUnit(currencies, price){
+    if(currenciesSmallerUnit.includes(currencies)){
+        return price * 100 / 100000000;
+    } else {
+        return price / 100000000;
+    }
+}
+
 // Object constructor
 function CurrencyItem(currencyName, price){
     this.currencyName = currencyName
     this.price = price
-    this.satprice = this.price / 100000000
+    this.smallestUnitPrice = getSmallestUnit(currencyName, price)
+    this.percentage = Math.floor(this.smallestUnitPrice * 100) / 100;
 }
 
-// Smallest unit
-function getSmallestUnit(name, satPrice){
-    if(name === "USD"){
-        return satPrice * 100;
-    } else {
-        return satprice;
-    }
-}
-
+function createCompareItem(name, price){
+    // create container
+    const compareItem = document.createElement('div');
+    compareItem.classList.add('compare-item');
+    // create text
+    const compareItemString = document.createElement('span');
+    compareItemString.classList.add('compare-item__string');
+    compareItemString.innerText = `${name} ${price}`
+    // bring it in
+    compareItem.append(compareItemString);
+    container.append(compareItem);
+};
 
 // Populate our currencyList array
 function addData(){
     const entriesList = Object.entries(btcData);
     entriesList.forEach((item) => {
-        const currencyName = item[0];
-        const price = item[1]['buy'];
+        const entryCurrencyName = item[0];
+        const entryCurrencyPrice = item[1]['buy'];
         // Create object
-        const currencyListItem = new CurrencyItem(currencyName, price);
+        const currencyListItem = new CurrencyItem(entryCurrencyName, entryCurrencyPrice);
         currencyList.push(currencyListItem);
     })
 }
@@ -64,5 +70,8 @@ fetchData();
 
 setTimeout(() => {
     addData();
-    console.log(currencyList);
+    currencyList.forEach((item) => {
+        console.log(item);
+        createCompareItem(item.currencyName, item.percentage);
+    });
 }, 2000);
