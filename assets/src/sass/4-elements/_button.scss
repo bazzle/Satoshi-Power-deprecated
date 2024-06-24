@@ -1,0 +1,19 @@
+.e-button{
+  @include text-button;
+  font-size: 1.4rem;
+  position: relative;
+  display: inline-block;
+  width: auto;
+  padding: 1em 1.2em;
+  border: 1px solid $color-accent;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  @include btn-state($color-accent, transparent);
+  &:focus {
+    color: black;
+    background: $color-accent;
+    outline: none;
+  }
+}

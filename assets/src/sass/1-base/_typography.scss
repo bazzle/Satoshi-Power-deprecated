@@ -1,0 +1,228 @@
+// imports
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,1000&display=swap');
+
+// Typography variables
+
+$font-heading: 'Bebas Neue', sans-serif;
+$font-mono: 'DM Mono', monospace;
+$font-sans: 'DM Sans', sans-serif;
+$font-size-standard: clamp(1.4rem, 1.8vw, 1.5rem);
+$line-height-standard: 1.6;
+
+// Typography mixins
+
+// Header – Site name and tagline
+
+@mixin text-site-name{
+    font-family: $font-sans;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-variation-settings: "wght" 1000, 'opsz' 9;
+}
+
+@mixin text-site-tagline{
+    font-size: 1.2rem;
+    font-family: $font-mono;
+}
+
+// Single article
+
+@mixin text-page-title{
+    font-size: clamp(3.5rem, 9vw, 6.4rem);
+    line-height: 1;
+    font-family: $font-heading;
+    font-style: italic;
+    word-break:break-word;
+}
+@mixin text-intro{
+    font-family: $font-sans;
+    line-height: 1.6;
+    font-size: clamp(1.8rem, 2.2vw, 2.6rem);
+    font-variation-settings: 'wght' 300, 'opsz' 9;
+}
+@mixin text-blocky{
+    font-family:$font-sans;
+    letter-spacing: .03em;
+    font-size: 1.4rem;
+    font-variation-settings: "wght" 600, 'opsz' 20;
+}
+@mixin text-meta{
+    font-family:$font-mono;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: $color-accent--light;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+}
+@mixin text-meta-tiny{
+    font-family:$font-mono;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: $color-accent--light;
+    font-size:1.2rem;
+}
+@mixin text-body{
+    font-family: $font-sans;
+    font-size: clamp(1.4rem, 1.8vw, 1.6rem);
+    font-variation-settings: 'wght' 300, 'opsz' 9;
+    line-height: 1.8;
+}
+@mixin text-body-strong{
+    font-variation-settings: 'wght' 800, 'opsz' 9;
+}
+@mixin text-body-link{
+    font-variation-settings: 'wght' 800, 'opsz' 9;
+}
+@mixin text-body-heading{
+    font-variation-settings: "wght" 700;
+    font-family: $font-sans;
+    font-size: clamp(1.6rem, 1.6vw, 2.2rem);
+    line-height: 1.4;
+    color: $color-primary;
+}
+@mixin text-blockquote{
+    font-variation-settings: "wght" 500;
+    font-family: $font-sans;
+    font-size: clamp(1.8rem, 2vw, 2.2rem);
+    line-height: 1.4;
+}
+@mixin text-cite{
+    font-family: $font-sans;
+    font-size: clamp(1.4rem, 1.8vw, 1.8rem);
+    font-variation-settings: "wght" 300;
+    font-style: italic;
+}
+@mixin text-button{
+    font-weight: 600;
+    font-size: 3rem;
+}
+
+// Cards
+
+@mixin text-card-heading{
+    font-family: $font-heading;
+    font-size: 2.8rem;
+    font-variation-settings: "wght" 700;
+    line-height: 1.1;
+    color: white;
+}
+@mixin text-card-excerpt{
+    font-family: $font-sans;
+    font-size: clamp(1.2rem, 1.8vw, 1.4rem);
+    font-variation-settings: 'wght' 400, 'opsz' 9;
+    line-height: 1.6;
+}
+
+// Linked items
+
+@mixin text-linked-item-heading{
+    font-family: $font-heading;
+    font-size: 3.2rem;
+    font-variation-settings: "wght" 700;
+    line-height: 1.1;
+    color: white;
+}
+
+// Misc global elements
+
+@mixin text-footer{
+    font-size: 1.4rem;
+    font-family: $font-mono;
+}
+
+
+
+
+
+
+@mixin paragraphdefaults{
+    color: inherit;
+    line-height: 1.8;
+    @include text-body;
+    @include gap(margin-bottom);
+}
+
+@mixin ullistdefaults{
+    padding: 0;
+    @include text-body;
+    list-style-position: inside;
+    @include gap(margin-bottom);
+    li{
+        position: relative;
+        display: block;
+        padding-left: 1.2em;
+        list-style: none;
+        line-height: 1.4;
+        &::before {
+            position: absolute;
+            top: 0.5em;
+            left: 0;
+            width: 6px;
+            height: 6px;
+            background-color: $color-accent;
+            content: '';
+        }
+    }
+}
+  
+@mixin ollistdefaults{
+    padding: 0;
+    @include text-body;
+    list-style: none;
+    counter-reset: li;
+    list-style-position: inside;
+    @include gap(margin-bottom);
+    li{
+        counter-increment: item;
+        position: relative;
+        display: block;
+        padding-left: 1.5em;
+        list-style: none;
+        line-height: 1.4;
+        &::before {
+        position: absolute;
+        left: 0;
+        color: $color-accent;
+        content: counter(item) '. ';
+        }
+    }
+} 
+  
+// body text formatting
+  
+@mixin text-format {
+    @include text-body;
+    a{
+        @include text-body-link;
+    }
+    h2, h3, h4, h5, p, a, ol, hr, blockquote{
+        @include gap(margin-bottom, 1);
+    }
+    h2{
+        @include text-body-heading;
+        @include gap(margin-top);
+        @include gap(margin-bottom);
+    }
+    h3{
+        @include text-body-heading;
+        @include gap(margin-top);
+        @include gap(margin-bottom);
+    }
+    b, strong{
+        @include text-body-strong;
+    }
+    p{
+        color: inherit;
+        @include gap(margin-bottom);
+    }
+    ul{
+        @include ullistdefaults;
+    }
+    ol{
+        @include ollistdefaults;
+    }
+    hr {
+        height: 4px solid $color-accent;
+        border: 0;
+    }
+}

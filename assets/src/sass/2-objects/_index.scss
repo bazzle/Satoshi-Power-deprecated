@@ -1,0 +1,14 @@
+.o-index {
+  &__container{
+    display:grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+    @include break(tablet){
+      grid-template-columns: 1fr 1fr;
+    }
+    @include break(desktop-mini){
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    grid-auto-rows: auto;
+  }
+}
