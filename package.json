@@ -12,7 +12,7 @@
     "rollup": "rollup -c",
     "watch-js": "rollup -c -w",
     "watch": "concurrently \"yarn sass-watch\" \"yarn stylelint-watch\" \"yarn serve\" \"yarn watch-js\"",
-    "serve": "browser-sync start --server --files 'assets/dist/css/*.css'"
+    "serve": "browser-sync start --config 'bs-config.js'"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",
