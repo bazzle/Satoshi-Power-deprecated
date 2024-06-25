@@ -1,4 +1,4 @@
-document.querySelector('.currency-grid');
+const container = document.querySelector('.currency-grid');
 const tickerFetchUrl = "https://blockchain.info/ticker";
 
 let fetchedData;
@@ -11,6 +11,14 @@ async function fetchData(){
         console.log('No data');
     } finally {
         dataFetched();
+    }
+}
+
+function getSmallestUnitPrice(price, smallestUnit){
+    if (smallestUnit === currencyName){
+        return price;
+    } else {
+        return 'smallest unit calculation';
     }
 }
 
@@ -30,10 +38,11 @@ function dataFetched(){
                     return 'Normal unit calculation'
                 }
             };
-        }        
+        };
+        
     }
-}
+};
+
 // Do stuff
 
 fetchData();
-//# sourceMappingURL=main.min.js.map

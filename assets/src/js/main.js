@@ -66,12 +66,15 @@ function addData(){
 
 // Do things ----------------------------------
 
-fetchData();
+async function processData(){
+    const result = await fetchData();
+    console.log(result);
+    // addData();
+    // console.log(currencyList);
+    // currencyList.forEach((item) => {
+    //     console.log(item);
+    //     createCompareItem(item.currencyName, item.percentage);
+    // });
+};
 
-setTimeout(() => {
-    addData();
-    currencyList.forEach((item) => {
-        console.log(item);
-        createCompareItem(item.currencyName, item.percentage);
-    });
-}, 2000);
+processData();
