@@ -1,0 +1,94 @@
+[
+  {
+    "code": "ARS",
+    "name": "Argentine Peso",
+    "smaller_unit": "Centavo"
+  },
+  {
+    "code": "AUD",
+    "name": "Australian Dollar",
+    "smaller_unit": "Cent"
+  },
+  {
+    "code": "BRL",
+    "name": "Brazilian Real",
+    "smaller_unit": "Centavo"
+  },
+  {
+    "code": "CAD",
+    "name": "Canadian Dollar",
+    "smaller_unit": "Cent"
+  },
+  {
+    "code": "CHF",
+    "name": "Swiss Franc",
+    "smaller_unit": "Rappen"
+  },
+  {
+    "code": "CLP",
+    "name": "Chilean Peso",
+    "smaller_unit": "Centavo"
+  },
+  {
+    "code": "CNY",
+    "name": "Chinese Yuan",
+    "smaller_unit": "Fen"
+  },
+  {
+    "code": "CZK",
+    "name": "Czech Koruna",
+    "smaller_unit": "Haléř"
+  },
+  {
+    "code": "DKK",
+    "name": "Danish Krone",
+    "smaller_unit": "Øre"
+  },
+  {
+    "code": "EUR",
+    "name": "Euro",
+    "smaller_unit": "Cent"
+  },
+  {
+    "code": "GBP",
+    "name": "British Pound",
+    "smaller_unit": "Penny"
+  },
+  {
+    "code": "HKD",
+    "name": "Hong Kong Dollar",
+    "smaller_unit": "Cent"
+  },
+  {
+    "code": "HRK",
+    "name": "Croatian Kuna",
+    "smaller_unit": "Lipa"
+  },
+  {
+    "code": "HUF",
+    "name": "Hungarian Forint",
+    "smaller_unit": "Fillér"
+  },
+  {
+    "code": "INR",
+    "name": "Indian Rupee",
+    "smaller_unit": "Paisa"
+  },
+  {
+    "code": "ISK",
+    "name": "Icelandic Króna",
+    "smaller_unit": "Eyrir"
+  },
+  {
+    "code": "JPY",
+    "name": "Japanese Yen",
+    "smaller_unit": "Sen"
+  },
+  {
+    "code": "KRW",
+    "name": "South Korean Won",
+    "smaller_unit": "Jeon"
+  },
+  {
+    "code": "NZD",
+   
