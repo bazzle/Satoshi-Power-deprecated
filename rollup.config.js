@@ -3,7 +3,7 @@ import { terser } from "rollup-plugin-terser";
 // Define multiple input and output options
 const configs = [
   {
-    input: 'assets/src/js/main2.js',
+    input: 'assets/src/js/main.js',
     output: {
       file: 'assets/dist/js/main.min.js',
       sourcemap: true
