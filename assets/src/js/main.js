@@ -1,4 +1,6 @@
+// DOM elements
 const container = document.querySelector('.currency-grid');
+// Data
 const tickerFetchUrl = "https://blockchain.info/ticker";
 
 let fetchedData;
@@ -40,20 +42,29 @@ function dataFetched(){
             price
         );
         this.percentage = getPercentage(this.smallestUnitPrice);
+        this.smallestUnitKilled = this.percentage > 100;
     }
 
-    for (const currencyItem in fetchedData) {
-        let details = fetchedData[currencyItem];
-        const symbol = details['symbol'];
-        const price = details['sell'];
-        const deleteDeets = ['15m', 'buy', 'last'];
-        deleteDeets.forEach((item) => {
-            delete details[item];
-        })
-        addCurrencyDetails(symbol, price, details);
+    function buildElement(ElementType, elementClassName){
+        const domElement = document.createElement(ElementType);
+        domElement.classList.add(elementClassName);
+        return domElement;
     }
 
-    console.log(fetchedData);
+    function addToDOM(unitName, smallestUnitName, unitPercentage, smallestUnitKilled){
+        const item = buildElement('li', 'item');
+        const itemText = buildElement('span', 'item__text');
+        const itemTextString = unitPercentage < 1 ? `${unitName} <1%` : `${unitName} ${unitPercentage}%`;
+        itemText.innerText = itemTextString;
+        item.append(itemText);
+        currencyList.append(item);
+        if (smallestUnitKilled){
+            const itemSubtitle = buildElement('span', 'item__subtitle');
+            itemSubtitle.innerHTML = `${smallestUnitName} ${unitPercentage}%`;
+            currencyList.append(itemSubtitle);
+        }
+    }
+
 
     function addCurrencyDetails(symbol, price, data){
         switch (symbol) {
@@ -183,7 +194,7 @@ function dataFetched(){
                 break;
             }
             case "TRY" : {
-                const newData = new additionalDetails(price, 'Turkish Lira', 'Turkish Lira');
+                const newData = new additionalDetails(price, 'Turkish Lira', 'Turkish Kuruş');
                 Object.assign(data, newData);
                 break;
             }
@@ -198,10 +209,29 @@ function dataFetched(){
                 break;
             }
         }
+        
     };
+
+
+    // Do stuff --------------------------------------------
+
+    const currencyList = document.createElement('ul');
+    container.append(currencyList);
+
+    for (const currencyItem in fetchedData) {
+        let details = fetchedData[currencyItem];
+        const symbol = details['symbol'];
+        const price = details['sell'];
+        const deleteDeets = ['15m', 'buy', 'last'];
+        deleteDeets.forEach((item) => {
+            delete details[item];
+        })
+        addCurrencyDetails(symbol, price, details);
+        addToDOM(details['currencyName'], details['smallestUnitName'], details['percentage'], details['smallestUnitKilled']);
+    }
+    console.log(fetchedData);
 
 };
 
-// Do stuff
 
 fetchData();
