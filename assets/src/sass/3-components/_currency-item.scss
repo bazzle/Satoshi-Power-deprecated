@@ -1,3 +1,16 @@
 .c-currencyitem{
-    border: 3px solid $color-primary;
+    border: 2px solid $color-primary;
+    padding: .5em .4em .4em;
+    &__main{
+        font-family: $font-heading;
+        font-size: 3.6rem;
+        font-variation-settings: "wght" 700;
+        line-height: 1;
+        color: white;
+        text-align: right;
+        display: block;
+    }
+    &__smallunit{
+        display: none;
+    }
 }

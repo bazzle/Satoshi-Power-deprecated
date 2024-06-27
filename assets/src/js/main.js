@@ -41,14 +41,14 @@ function dataFetched(){
 
     function addToDOM(unitName, smallUnitName, unitPercentage, smallestUnitPercentage,  smallestUnitKilled){
         const item = buildElement('li', 'c-currencyitem');
-        const itemMain = buildElement('div', 'c-currency__main');
+        const itemMain = buildElement('span', 'c-currencyitem__main');
         if (smallestUnitKilled){
             // main title
             const itemTextString = `${smallUnitName} ${smallestUnitPercentage}%`;
             itemMain.innerText = itemTextString;
             // sub title
             const itemSmallUnitString = unitName < 1 ? `${unitPercentage} <1%` : `${unitName} ${unitPercentage}%`;
-            const itemSmallUnit = buildElement('div', 'c-currency__small-unit');
+            const itemSmallUnit = buildElement('span', 'c-currencyitem__smallunit');
             itemSmallUnit.innerText = itemSmallUnitString;
             // add together
             item.append(itemMain, itemSmallUnit);

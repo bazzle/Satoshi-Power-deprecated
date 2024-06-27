@@ -512,6 +512,74 @@ svg, svg path {
   border: 0 !important;
 }
 
+.o-row {
+  width: 100%;
+  margin-top: calc(1rem * 1);
+  margin-bottom: calc(1rem * 1);
+  padding-right: 3rem;
+  padding-left: 3rem;
+}
+@media screen and (min-width: 22.438em) {
+  .o-row {
+    margin-top: calc(1.2rem * 1);
+  }
+}
+@media screen and (min-width: 40.063em) {
+  .o-row {
+    margin-top: calc(2.2rem * 1);
+  }
+}
+@media screen and (min-width: 22.438em) {
+  .o-row {
+    margin-bottom: calc(1.2rem * 1);
+  }
+}
+@media screen and (min-width: 40.063em) {
+  .o-row {
+    margin-bottom: calc(2.2rem * 1);
+  }
+}
+@media screen and (min-width: calc(900px + 3rem + 60px)) {
+  .o-row {
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+}
+.o-row--nomargin {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.o-row--nomargin-top {
+  margin-top: 0;
+}
+.o-row--nomargin-bottom {
+  margin-bottom: 0;
+}
+.o-row--no-padding {
+  padding: 0;
+}
+.o-row--no-padding__left {
+  padding-left: 0;
+}
+.o-row--no-padding__right {
+  padding-right: 0;
+}
+
+.o-row-container, .o-row-container--full, .o-row-container--wider, .o-row-container--wide {
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.o-row-container--wide {
+  max-width: 1000px;
+}
+.o-row-container--wider {
+  max-width: 1500px;
+}
+.o-row-container--full {
+  max-width: unset;
+}
+
 .o-header {
   padding-top: calc(1rem * 1);
   position: relative;
@@ -617,7 +685,7 @@ svg, svg path {
 
 .o-currencygrid {
   display: grid;
-  gap: 20px;
+  gap: 1.5rem;
   grid-template-columns: 1fr;
   grid-auto-rows: auto;
 }
@@ -647,7 +715,20 @@ svg, svg path {
 }
 
 .c-currencyitem {
-  border: 3px solid #f7931a;
+  border: 2px solid #f7931a;
+  padding: 0.5em 0.4em 0.4em;
+}
+.c-currencyitem__main {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 3.6rem;
+  font-variation-settings: "wght" 700;
+  line-height: 1;
+  color: white;
+  text-align: right;
+  display: block;
+}
+.c-currencyitem__smallunit {
+  display: none;
 }
 
 .e-button {

@@ -88,14 +88,3 @@
   align-items: center;
   justify-content: center;
 }
-
-
-// Theme specific
-
-@mixin offset-occupy{
-  position: relative;
-  @include break(site-width){
-      left: -$content-offset;
-      width: calc(100% + $content-offset);
-  }
-}

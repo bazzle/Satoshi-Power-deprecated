@@ -1,6 +1,6 @@
 .o-currencygrid {
     display:grid;
-    gap: 20px;
+    gap: $gap;
     grid-template-columns: 1fr;
     @include break(tablet){
       grid-template-columns: 1fr 1fr;
