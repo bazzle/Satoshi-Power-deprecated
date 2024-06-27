@@ -340,6 +340,15 @@ video {
   }
 }
 
+hr {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  height: 0.5px;
+  background-color: #f7931a;
+  border: 0;
+  width: 80px;
+}
+
 html {
   width: 100%;
   height: 100%;
@@ -369,7 +378,7 @@ body {
   background-color: #000000;
   color: #ffffff;
   font-family: "DM Sans", sans-serif;
-  font-size: clamp(1.4rem, 1.8vw, 1.5rem);
+  font-size: 1.2rem;
   line-height: 1.6;
   text-align: left;
   overflow-x: hidden;
@@ -658,16 +667,18 @@ svg, svg path {
 .o-footer__container {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   gap: 1em;
 }
-.o-footer p {
+.o-footer__signoff {
   text-align: center;
   font-family: "DM Sans", sans-serif;
   text-transform: uppercase;
   font-size: 1.2rem;
   line-height: 1;
   font-variation-settings: "wght" 700, "opsz" 9;
+  line-height: unset;
 }
 
 .c-currencyitem {
@@ -739,6 +750,45 @@ svg, svg path {
   line-height: 1;
   font-variation-settings: "wght" 700, "opsz" 9;
   color: #f7931a;
+}
+
+.c-nostr-copy {
+  display: flex;
+  align-items: center;
+}
+.c-nostr-copy__label {
+  margin-right: 0.5em;
+}
+.c-nostr-copy__key {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  padding-left: 1em;
+  background-color: #151515;
+  height: 2em;
+  border-radius: 2em 0 0 2em;
+  font-family: "DM Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1.2rem;
+  color: #9AF3FF;
+}
+.c-nostr-copy__button {
+  display: flex;
+  align-items: center;
+  padding: 0 1em 0 0.5em;
+  height: 2em;
+  border-radius: 0 2em 2em 0;
+  font-family: "DM Sans", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  line-height: 1;
+  font-variation-settings: "wght" 700, "opsz" 9;
+  background-color: #151515;
+}
+.c-nostr-copy__button svg {
+  color: #00E0FF;
+  height: 1em;
 }
 
 .e-button {

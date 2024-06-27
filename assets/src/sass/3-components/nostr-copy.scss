@@ -1,0 +1,31 @@
+.c-nostr-copy{
+    display: flex;
+    align-items: center;
+    &__label{
+        margin-right: .5em;
+    }
+    &__key{
+        display: flex;
+        align-items: center;
+        padding: 0;
+        padding-left: 1em;
+        background-color: $color-bg-2;
+        height: 2em;
+        border-radius: 2em 0 0 2em;
+        @include text-meta-tiny;
+        color: $color-accent--light;
+    }
+    &__button{
+        display: flex;
+        align-items: center;
+        padding: 0 1em 0 .5em;
+        height: 2em;
+        border-radius: 0 2em 2em 0;
+        @include text-blocky-small;
+        background-color: $color-bg-2;
+        svg{
+            color: $color-accent;
+            height: 1em;
+        }
+    }
+}

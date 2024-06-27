@@ -7,7 +7,7 @@
 $font-heading: 'Bebas Neue', sans-serif;
 $font-mono: 'DM Mono', monospace;
 $font-sans: 'DM Sans', sans-serif;
-$font-size-standard: clamp(1.4rem, 1.8vw, 1.5rem);
+$font-size-standard: 1.2rem;
 $line-height-standard: 1.6;
 
 // Typography mixins
@@ -37,18 +37,22 @@ $line-height-standard: 1.6;
     line-height: 1;
     font-variation-settings: "wght" 700, 'opsz' 9;
 }
+@mixin text-blocky-small-lower{
+    font-family: $font-sans;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    font-variation-settings: "wght" 700, 'opsz' 9;
+}
 @mixin text-meta{
     font-family:$font-mono;
     text-transform: uppercase;
     letter-spacing: .04em;
-    color: $color-accent--light;
     font-size: clamp(1rem, 2vw, 1.2rem);
 }
 @mixin text-meta-tiny{
     font-family:$font-mono;
     text-transform: uppercase;
     letter-spacing: .04em;
-    color: $color-accent--light;
     font-size:1.2rem;
 }
 @mixin text-body{
@@ -178,8 +182,13 @@ $line-height-standard: 1.6;
     ol{
         @include ollistdefaults;
     }
-    hr {
-        height: 4px solid $color-accent;
-        border: 0;
-    }
+}
+
+hr {
+    margin-top: $gap;
+    margin-bottom: $gap;
+    height: .5px;
+    background-color: $color-bitcoin;
+    border: 0;
+    width: 80px;
 }
