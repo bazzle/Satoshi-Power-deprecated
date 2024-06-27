@@ -20,26 +20,9 @@ $line-height-standard: 1.6;
     font-size: 1.4rem;
     font-variation-settings: "wght" 1000, 'opsz' 9;
 }
-
 @mixin text-site-tagline{
     font-size: 1.2rem;
     font-family: $font-mono;
-}
-
-// Single article
-
-@mixin text-page-title{
-    font-size: clamp(3.5rem, 9vw, 6.4rem);
-    line-height: 1;
-    font-family: $font-heading;
-    font-style: italic;
-    word-break:break-word;
-}
-@mixin text-intro{
-    font-family: $font-sans;
-    line-height: 1.6;
-    font-size: clamp(1.8rem, 2.2vw, 2.6rem);
-    font-variation-settings: 'wght' 300, 'opsz' 9;
 }
 @mixin text-blocky{
     font-family:$font-sans;
@@ -70,9 +53,6 @@ $line-height-standard: 1.6;
 @mixin text-body-strong{
     font-variation-settings: 'wght' 800, 'opsz' 9;
 }
-@mixin text-body-link{
-    font-variation-settings: 'wght' 800, 'opsz' 9;
-}
 @mixin text-body-heading{
     font-variation-settings: "wght" 700;
     font-family: $font-sans;
@@ -97,42 +77,12 @@ $line-height-standard: 1.6;
     font-size: 3rem;
 }
 
-// Cards
-
-@mixin text-card-heading{
-    font-family: $font-heading;
-    font-size: 2.8rem;
-    font-variation-settings: "wght" 700;
-    line-height: 1.1;
-    color: white;
-}
-@mixin text-card-excerpt{
-    font-family: $font-sans;
-    font-size: clamp(1.2rem, 1.8vw, 1.4rem);
-    font-variation-settings: 'wght' 400, 'opsz' 9;
-    line-height: 1.6;
-}
-
-// Linked items
-
-@mixin text-linked-item-heading{
-    font-family: $font-heading;
-    font-size: 3.2rem;
-    font-variation-settings: "wght" 700;
-    line-height: 1.1;
-    color: white;
-}
-
 // Misc global elements
 
 @mixin text-footer{
     font-size: 1.4rem;
     font-family: $font-mono;
 }
-
-
-
-
 
 
 @mixin paragraphdefaults{

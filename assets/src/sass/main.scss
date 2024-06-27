@@ -6,14 +6,16 @@
 @import '1-base/breakpoints';
 @import '1-base/mixins';
 @import '1-base/typography';
+@import '1-base/typography-project';
 @import '1-base/base';
 @import '1-base/utilities';
 
 @import '2-objects/header';
 @import '2-objects/main';
-@import '2-objects/index';
+@import '2-objects/currency-grid';
 @import '2-objects/footer';
 
+@import '3-components/currency-item';
 @import '3-components/logo';
 
 @import '4-elements/button';

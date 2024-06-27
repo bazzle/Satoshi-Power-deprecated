@@ -1,5 +1,5 @@
 // DOM elements
-const container = document.querySelector('.currency-grid');
+const container = document.getElementById('js-app');
 // Data
 const tickerFetchUrl = "https://blockchain.info/ticker";
 
@@ -40,25 +40,25 @@ function dataFetched(){
     }
 
     function addToDOM(unitName, smallUnitName, unitPercentage, smallestUnitPercentage,  smallestUnitKilled){
-        const item = buildElement('li', 'item');
-        const itemTitle = buildElement('h2', 'item__text');
+        const item = buildElement('li', 'c-currencyitem');
+        const itemMain = buildElement('div', 'c-currency__main');
         if (smallestUnitKilled){
             // main title
-            const itemTextString = unitName < 1 ? `${unitPercentage} <1%` : `${unitName} ${unitPercentage}%`;
-            itemTitle.innerText = itemTextString;
+            const itemTextString = `${smallUnitName} ${smallestUnitPercentage}%`;
+            itemMain.innerText = itemTextString;
             // sub title
-            const itemSubtitleString = `${smallUnitName} ${smallestUnitPercentage}%`;
-            const itemSubtitle = buildElement('span', 'item__subtitle');
-            itemSubtitle.innerText = itemSubtitleString;
+            const itemSmallUnitString = unitName < 1 ? `${unitPercentage} <1%` : `${unitName} ${unitPercentage}%`;
+            const itemSmallUnit = buildElement('div', 'c-currency__small-unit');
+            itemSmallUnit.innerText = itemSmallUnitString;
             // add together
-            item.append(itemTitle, itemSubtitle);
+            item.append(itemMain, itemSmallUnit);
         } else {
             // main title
             itemTextString = smallUnitName < 1 ? `${smallestUnitPercentage} <1%` : `${smallUnitName} ${smallestUnitPercentage}%`;
-            itemTitle.innerText = itemTextString;
-            item.append(itemTitle);
+            itemMain.innerText = itemTextString;
+            item.append(itemMain);
         }
-        currencyList.append(item);
+        currencyGrid.append(item);
     }
 
 
@@ -211,8 +211,8 @@ function dataFetched(){
 
     // Do stuff --------------------------------------------
 
-    const currencyList = document.createElement('ul');
-    container.append(currencyList);
+    const currencyGrid = buildElement('ul', 'o-currencygrid');
+    container.append(currencyGrid);
 
     for (const currencyItem in fetchedData) {
         let details = fetchedData[currencyItem];
