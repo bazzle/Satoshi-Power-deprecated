@@ -40,4 +40,8 @@
             }
         }
     }
+    &--smallest-complete{
+        border-color: $color-accent--light;
+        cursor:pointer;
+    }
 }

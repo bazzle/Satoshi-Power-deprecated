@@ -54,13 +54,17 @@ function dataFetched(){
             item.classList.add('c-currencyitem--complete');
         }
         if (smallestUnitKilled){
+            item.classList.add('c-currencyitem--smallest-complete');
             // main title
-            const itemTextString = `${smallUnitName} ${smallestUnitPercentage}%`;
-            itemText.innerText = itemTextString;
-            // sub title
-            // const itemSmallUnitString = unitName < 1 ? `${unitPercentage} <1%` : `${unitName} ${unitPercentage}%`;
-            // const itemSmallUnit = buildElement('span', 'c-currencyitem__smallunit');
-            // itemSmallUnit.innerText = itemSmallUnitString;
+            let itemTextString = `${unitName} ${unitPercentage}%`;
+            let itemTextStringsmall = `${smallUnitName} ${smallestUnitPercentage}%`;
+            itemText.innerText = itemTextStringsmall;
+            item.addEventListener('mouseenter',() => {
+                itemText.innerText = itemTextString;
+            });
+            item.addEventListener('mouseleave',() => {
+                itemText.innerText = itemTextStringsmall;
+            });
             item.append(itemMain);
             itemMain.append(percentageBar(smallestUnitPercentage));
         } else {

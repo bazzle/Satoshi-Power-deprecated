@@ -712,6 +712,10 @@ svg, svg path {
 .c-currencyitem--complete .c-currencyitem__percentage-bar {
   background-color: #f7931a;
 }
+.c-currencyitem--smallest-complete {
+  border-color: #9AF3FF;
+  cursor: pointer;
+}
 
 .c-logo-lockup {
   display: flex;
