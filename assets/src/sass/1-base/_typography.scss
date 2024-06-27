@@ -25,10 +25,9 @@ $line-height-standard: 1.6;
     font-family: $font-mono;
 }
 @mixin text-blocky{
-    font-family:$font-sans;
-    letter-spacing: .03em;
-    font-size: 1.4rem;
-    font-variation-settings: "wght" 600, 'opsz' 20;
+    font-family: $font-heading;
+    font-size: 2.6rem;
+    font-variation-settings: "wght" 700;
 }
 @mixin text-meta{
     font-family:$font-mono;

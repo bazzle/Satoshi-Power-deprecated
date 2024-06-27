@@ -11,14 +11,14 @@
         height: calc(100% - 6px);
     }
     &__text{
-        font-family: $font-heading;
-        font-size: 3.6rem;
-        font-variation-settings: "wght" 700;
+        @include text-blocky;
         line-height: 1;
         color: white;
         text-align: right;
         display: block;
-        padding: 0.2em 0.1em 0.1em;
+        padding: 0.2em 0.1em 0.2em;
+        z-index: 1;
+        position: relative;
     }
     &__smallunit{
         display: none;
@@ -29,7 +29,6 @@
         top: 3px;
         background-color: $color-bitcoin-accessible;
         height: 100%;
-        z-index: -1;
     }
     &--complete{
         .c-currencyitem{

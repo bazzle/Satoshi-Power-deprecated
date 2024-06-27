@@ -564,6 +564,9 @@ svg, svg path {
 .o-row--no-padding__right {
   padding-right: 0;
 }
+.o-row--lighter {
+  background-color: #151515;
+}
 
 .o-row-container, .o-row-container--full, .o-row-container--wider, .o-row-container--wide {
   max-width: 800px;
@@ -684,8 +687,10 @@ svg, svg path {
 }
 
 .o-currencygrid {
+  padding-top: 2.2rem;
+  padding-bottom: 2.2rem;
   display: grid;
-  gap: 1.5rem;
+  gap: 2.2rem;
   grid-template-columns: 1fr;
   grid-auto-rows: auto;
 }
@@ -729,13 +734,15 @@ svg, svg path {
 }
 .c-currencyitem__text {
   font-family: "Bebas Neue", sans-serif;
-  font-size: 3.6rem;
+  font-size: 2.6rem;
   font-variation-settings: "wght" 700;
   line-height: 1;
   color: white;
   text-align: right;
   display: block;
-  padding: 0.2em 0.1em 0.1em;
+  padding: 0.2em 0.1em 0.2em;
+  z-index: 1;
+  position: relative;
 }
 .c-currencyitem__smallunit {
   display: none;
@@ -746,7 +753,6 @@ svg, svg path {
   top: 3px;
   background-color: #D67600;
   height: 100%;
-  z-index: -1;
 }
 .c-currencyitem--complete .c-currencyitem__text {
   color: #000000;

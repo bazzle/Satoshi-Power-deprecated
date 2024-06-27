@@ -45,6 +45,9 @@ $edgepadding-mobile-loose: 3rem;
   &--no-padding__right {
     padding-right: 0;
   }
+  &--lighter{
+    background-color: $color-bg-2;
+  }
 }
 
 .o-row-container {
