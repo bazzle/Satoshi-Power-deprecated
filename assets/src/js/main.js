@@ -261,7 +261,7 @@ function dataFetched(){
 fetchData();
 
 
-const nostrPubKey = 89430750347930256;
+const nostrPubKey = npub1y73ajm09j3wra8jj9e3h8rkj3xculh520m9plgc6j57rkg7g0yyqt5p5dt;
 const nostrContainer = document.getElementById('js-nostr-key');
 const nostrButton = document.getElementById('js-nostr-copy');
 
@@ -278,6 +278,3 @@ function copyToClipboard(text) {
         console.error('Failed to copy text to clipboard: ', err);
     });
 }
-
-// Usage
-// copyToClipboard('Hello, World!');
