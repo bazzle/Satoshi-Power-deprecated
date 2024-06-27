@@ -74,6 +74,12 @@ function dataFetched(){
         currencyGrid.append(item);
     }
 
+    function sortData(){
+        fetchedData = Object.entries(fetchedData);
+        fetchedData.sort((a, b) => a[1].smallestUnitPercentage - b[1].smallestUnitPercentage);
+        fetchedData = Object.fromEntries(fetchedData);
+    }
+
 
     function addCurrencyDetails(symbol, price, data){
         switch (symbol) {
@@ -236,9 +242,14 @@ function dataFetched(){
             delete details[item];
         })
         addCurrencyDetails(symbol, price, details);
+    }
+
+    sortData();
+
+    for (const currencyItem in fetchedData) {
+        let details = fetchedData[currencyItem];
         addToDOM(details['currencyName'], details['smallUnitName'], details['unitPercentage'], details['smallestUnitPercentage'], details['smallestUnitKilled']);
     }
-    console.log(fetchedData);
 
 };
 
