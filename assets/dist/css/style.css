@@ -577,113 +577,39 @@ svg, svg path {
   max-width: 1000px;
 }
 .o-row-container--wider {
-  max-width: 1500px;
+  max-width: 1300px;
 }
 .o-row-container--full {
   max-width: unset;
 }
 
 .o-header {
-  padding-top: calc(1rem * 1);
-  position: relative;
+  margin-top: calc(1rem * 4);
+  margin-bottom: calc(1rem * 1);
 }
 @media screen and (min-width: 22.438em) {
   .o-header {
-    padding-top: calc(1.2rem * 1);
+    margin-top: calc(1.2rem * 4);
   }
 }
 @media screen and (min-width: 40.063em) {
   .o-header {
-    padding-top: calc(2.2rem * 1);
+    margin-top: calc(2.2rem * 4);
+  }
+}
+@media screen and (min-width: 22.438em) {
+  .o-header {
+    margin-bottom: calc(1.2rem * 1);
+  }
+}
+@media screen and (min-width: 40.063em) {
+  .o-header {
+    margin-bottom: calc(2.2rem * 1);
   }
 }
 .o-header__container {
-  width: 100%;
-  position: relative;
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.o-header__logo {
-  color: #f7931a;
-  display: block;
-  transition: 0.1s;
-  width: 22px;
-  height: 29px;
-  flex-shrink: 0;
-}
-.o-header__logo svg {
-  width: 22px;
-  height: 29px;
-  height: auto;
-}
-.o-header__title {
-  width: 100%;
-  display: flex;
-  gap: 1.5rem;
-  flex-direction: row;
-  align-items: center;
-}
-@media screen and (min-width: 22.438em) {
-  .o-header__title::after {
-    content: "";
-    height: 1px;
-    background-color: #00E0FF;
-    flex-grow: 1;
-    width: 100%;
-  }
-}
-.o-header__title__inner {
-  display: flex;
-  gap: 0.5em;
-  flex-direction: column;
-  flex-shrink: 0;
-}
-@media screen and (min-width: 22.438em) {
-  .o-header__title__inner {
-    flex-direction: row;
-    align-items: center;
-  }
-}
-@media screen and (min-width: 22.438em) {
-  .home .o-header__title::before {
-    content: "";
-    height: 1px;
-    background-color: #00E0FF;
-    flex-grow: 1;
-    width: 100%;
-  }
-}
-.o-header__site-name {
-  font-family: "DM Sans", sans-serif;
-  text-transform: uppercase;
-  font-size: 1.4rem;
-  font-variation-settings: "wght" 1000, "opsz" 9;
-  color: #ffffff;
-  display: block;
-  flex-shrink: 0;
-  display: flex;
-  gap: 0.5em;
-  align-items: center;
-}
-.o-header__site-tagline {
-  font-family: "DM Sans", sans-serif;
-  text-transform: uppercase;
-  font-size: 1.4rem;
-  font-variation-settings: "wght" 1000, "opsz" 9;
-  color: #f7931a;
-  display: block;
-  flex-shrink: 0;
-}
-.o-header__link {
-  white-space: nowrap;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 1;
+  justify-content: center;
 }
 
 .o-currencygrid {
@@ -706,7 +632,18 @@ svg, svg path {
 }
 
 .o-footer {
+  margin-top: calc(1rem * 1);
   margin-bottom: calc(1rem * 4);
+}
+@media screen and (min-width: 22.438em) {
+  .o-footer {
+    margin-top: calc(1.2rem * 1);
+  }
+}
+@media screen and (min-width: 40.063em) {
+  .o-footer {
+    margin-top: calc(2.2rem * 1);
+  }
 }
 @media screen and (min-width: 22.438em) {
   .o-footer {
@@ -717,6 +654,20 @@ svg, svg path {
   .o-footer {
     margin-bottom: calc(2.2rem * 4);
   }
+}
+.o-footer__container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1em;
+}
+.o-footer p {
+  text-align: center;
+  font-family: "DM Sans", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  line-height: 1;
+  font-variation-settings: "wght" 700, "opsz" 9;
 }
 
 .c-currencyitem {
@@ -735,12 +686,13 @@ svg, svg path {
 .c-currencyitem__text {
   font-family: "Bebas Neue", sans-serif;
   font-size: 2.6rem;
+  line-height: 1;
   font-variation-settings: "wght" 700;
   line-height: 1;
   color: white;
   text-align: right;
   display: block;
-  padding: 0.2em 0.1em 0.2em;
+  padding: 0.25em 0.1em 0.2em;
   z-index: 1;
   position: relative;
 }
@@ -759,6 +711,30 @@ svg, svg path {
 }
 .c-currencyitem--complete .c-currencyitem__percentage-bar {
   background-color: #f7931a;
+}
+
+.c-logo-lockup {
+  display: flex;
+  flex-direction: row;
+}
+.c-logo-lockup__logo {
+  flex-shrink: 0;
+  margin-right: 2rem;
+}
+.c-logo-lockup__sitename {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.6rem;
+  line-height: 1;
+  font-variation-settings: "wght" 700;
+  font-size: 4.6rem;
+}
+.c-logo-lockup__subtitle {
+  font-family: "DM Sans", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  line-height: 1;
+  font-variation-settings: "wght" 700, "opsz" 9;
+  color: #f7931a;
 }
 
 .e-button {

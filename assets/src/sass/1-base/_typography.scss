@@ -27,7 +27,15 @@ $line-height-standard: 1.6;
 @mixin text-blocky{
     font-family: $font-heading;
     font-size: 2.6rem;
+    line-height: 1;
     font-variation-settings: "wght" 700;
+}
+@mixin text-blocky-small{
+    font-family: $font-sans;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    line-height: 1;
+    font-variation-settings: "wght" 700, 'opsz' 9;
 }
 @mixin text-meta{
     font-family:$font-mono;

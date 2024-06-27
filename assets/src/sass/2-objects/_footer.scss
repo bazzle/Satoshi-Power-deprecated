@@ -1,3 +1,14 @@
 .o-footer{
-    @include gap(margin-bottom,4);
+    @include gap(margin-top);
+    @include gap(margin-bottom, 4);
+    &__container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1em;
+    }
+    p{
+        text-align: center;
+        @include text-blocky-small;
+    }
 }

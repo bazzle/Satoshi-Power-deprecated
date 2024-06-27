@@ -8,7 +8,7 @@
     @include break(tablet){
       grid-template-columns: 1fr 1fr;
     }
-    @include break(desktop-mini){
+    @include break(desktop){
       grid-template-columns: 1fr 1fr 1fr 1fr;
     }
     grid-auto-rows: auto;

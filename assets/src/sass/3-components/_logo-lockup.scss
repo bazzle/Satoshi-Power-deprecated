@@ -1,0 +1,16 @@
+.c-logo-lockup{
+    display: flex;
+    flex-direction: row;
+    &__logo{
+        flex-shrink: 0;
+        margin-right: 2rem;
+    }
+    &__sitename{
+        @include text-blocky;
+        font-size: 4.6rem;
+    }
+    &__subtitle{
+        @include text-blocky-small;
+        color: $color-bitcoin;
+    }
+}
