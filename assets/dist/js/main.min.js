@@ -41,23 +41,36 @@ function dataFetched(){
 
     function addToDOM(unitName, smallUnitName, unitPercentage, smallestUnitPercentage,  smallestUnitKilled){
         const item = buildElement('li', 'c-currencyitem');
-        const itemMain = buildElement('span', 'c-currencyitem__main');
+        const itemMain = buildElement('div', 'c-currencyitem__main');
+        const itemText = buildElement('span', 'c-currencyitem__text');
+        itemMain.append(itemText);
+        const percentageBar = (percentage) => {
+            const width = percentage > 100 ? 100 : percentage;
+            const element = buildElement('span', 'c-currencyitem__percentage-bar');
+            element.style.width = width + '%';
+            return element;
+        };
+        if (smallestUnitPercentage > 100) {
+            item.classList.add('c-currencyitem--complete');
+        }
         if (smallestUnitKilled){
             // main title
             const itemTextString = `${smallUnitName} ${smallestUnitPercentage}%`;
-            itemMain.innerText = itemTextString;
+            itemText.innerText = itemTextString;
             // sub title
-            const itemSmallUnitString = unitName < 1 ? `${unitPercentage} <1%` : `${unitName} ${unitPercentage}%`;
-            const itemSmallUnit = buildElement('span', 'c-currencyitem__smallunit');
-            itemSmallUnit.innerText = itemSmallUnitString;
-            // add together
-            item.append(itemMain, itemSmallUnit);
+            // const itemSmallUnitString = unitName < 1 ? `${unitPercentage} <1%` : `${unitName} ${unitPercentage}%`;
+            // const itemSmallUnit = buildElement('span', 'c-currencyitem__smallunit');
+            // itemSmallUnit.innerText = itemSmallUnitString;
+            item.append(itemMain);
+            itemMain.append(percentageBar(smallestUnitPercentage));
         } else {
             // main title
             itemTextString = smallUnitName < 1 ? `${smallestUnitPercentage} <1%` : `${smallUnitName} ${smallestUnitPercentage}%`;
-            itemMain.innerText = itemTextString;
+            itemText.innerText = itemTextString;
             item.append(itemMain);
+            itemMain.append(percentageBar(smallestUnitPercentage));
         }
+
         currencyGrid.append(item);
     }
 

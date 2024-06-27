@@ -716,9 +716,18 @@ svg, svg path {
 
 .c-currencyitem {
   border: 2px solid #f7931a;
-  padding: 0.5em 0.4em 0.4em;
+  display: block;
+  position: relative;
 }
 .c-currencyitem__main {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+}
+.c-currencyitem__text {
   font-family: "Bebas Neue", sans-serif;
   font-size: 3.6rem;
   font-variation-settings: "wght" 700;
@@ -726,9 +735,24 @@ svg, svg path {
   color: white;
   text-align: right;
   display: block;
+  padding: 0.2em 0.1em 0.1em;
 }
 .c-currencyitem__smallunit {
   display: none;
+}
+.c-currencyitem__percentage-bar {
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  background-color: #D67600;
+  height: 100%;
+  z-index: -1;
+}
+.c-currencyitem--complete .c-currencyitem__text {
+  color: #000000;
+}
+.c-currencyitem--complete .c-currencyitem__percentage-bar {
+  background-color: #f7931a;
 }
 
 .e-button {
