@@ -16,12 +16,19 @@ async function fetchData(){
     }
 }
 
+// Useful utility functions
+
+function buildElement(ElementType, elementClassName){
+    const domElement = document.createElement(ElementType);
+    domElement.classList.add(elementClassName);
+    return domElement;
+}
+
+function getPercentage(unitPrice){
+    return Math.floor(unitPrice * 100);
+}
 
 function dataFetched(){
-
-    function getPercentage(unitPrice){
-        return Math.floor(unitPrice * 100);
-    }
 
     function additionalDetails(price, currencyName, smallUnitName){
         this.currencyName = currencyName;
@@ -31,12 +38,6 @@ function dataFetched(){
         this.smallestUnitPrice = this.currencyName === this.smallUnitName ? this.unitPrice : price * 100 / 100000000;
         this.smallestUnitPercentage = getPercentage(this.smallestUnitPrice);
         this.smallestUnitKilled = this.currencyName != this.smallUnitName && this.smallestUnitPercentage > 100;
-    }
-
-    function buildElement(ElementType, elementClassName){
-        const domElement = document.createElement(ElementType);
-        domElement.classList.add(elementClassName);
-        return domElement;
     }
 
     function addToDOM(unitName, smallUnitName, unitPercentage, smallestUnitPercentage,  smallestUnitKilled){
@@ -260,21 +261,45 @@ function dataFetched(){
 
 fetchData();
 
+function nostrKeyDisplay(){
 
-const nostrPubKey = npub1y73ajm09j3wra8jj9e3h8rkj3xculh520m9plgc6j57rkg7g0yyqt5p5dt;
-const nostrContainer = document.getElementById('js-nostr-key');
-const nostrButton = document.getElementById('js-nostr-copy');
+    const nostrPubKey = "npub1y73ajm09j3wra8jj9e3h8rkj3xculh520m9plgc6j57rkg7g0yyqt5p5dt";
+    const nostrPubKeyFirstPart = () => {
+        return nostrPubKey.substring(0, 15);
+    }
+    const nostrPubKeyLastPart = () => {
+        return nostrPubKey.slice(-15);
+    }
+    const nostrPubKeyDisplay = `${nostrPubKeyFirstPart()}...${nostrPubKeyLastPart()}`;
+    const copySuccessMessage = buildElement('span','c-nostr-copy__message');
+    copySuccessMessage.innerHTML = 'Copied';
+    const nostrContainer = document.getElementById('js-nostr-key');
+    const nostrButton = document.getElementById('js-nostr-copy');
+    const copyIcon = document.querySelector('.js-copy-icon');
+    
+    nostrContainer.innerText = nostrPubKeyDisplay;
 
-nostrContainer.innerText = nostrPubKey;
-
-nostrButton.addEventListener('click', () => {
-    copyToClipboard(nostrPubKey);
-});
-
-function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(function() {
-        console.log('Text successfully copied to clipboard');
-    }).catch(function(err) {
-        console.error('Failed to copy text to clipboard: ', err);
+    nostrButton.addEventListener('mouseenter',() => {
+        nostrButton.classList.add('c-nostr-copy--hover');
+    });
+    nostrButton.addEventListener('mouseleave',() => {
+        nostrButton.classList.remove('c-nostr-copy--hover');
+    });
+    
+    nostrButton.addEventListener('click', () => {
+        navigator.clipboard.writeText(nostrPubKey)
+        .then(function() {
+            nostrButton.append(copySuccessMessage);
+            copyIcon.remove();
+            setTimeout(() => {
+                nostrButton.append(copyIcon);
+                copySuccessMessage.remove();
+            }, 2000)
+        })
+        .catch(function(err) {
+            console.error('Failed to copy text to clipboard: ', err);
+        });
     });
 }
+
+nostrKeyDisplay();

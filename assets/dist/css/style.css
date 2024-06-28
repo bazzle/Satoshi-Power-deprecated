@@ -755,40 +755,40 @@ svg, svg path {
 .c-nostr-copy {
   display: flex;
   align-items: center;
-}
-.c-nostr-copy__label {
-  margin-right: 0.5em;
-}
-.c-nostr-copy__key {
-  display: flex;
-  align-items: center;
-  padding: 0;
-  padding-left: 1em;
-  background-color: #151515;
-  height: 2em;
-  border-radius: 2em 0 0 2em;
-  font-family: "DM Mono", monospace;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  font-size: 1.2rem;
-  color: #9AF3FF;
+  gap: 0.5em;
 }
 .c-nostr-copy__button {
   display: flex;
   align-items: center;
-  padding: 0 1em 0 0.5em;
-  height: 2em;
-  border-radius: 0 2em 2em 0;
-  font-family: "DM Sans", sans-serif;
-  text-transform: uppercase;
-  font-size: 1.2rem;
-  line-height: 1;
-  font-variation-settings: "wght" 700, "opsz" 9;
+  gap: 0.5em;
   background-color: #151515;
+  height: 2em;
+  border-radius: 2em;
+  padding: 0 1em;
 }
-.c-nostr-copy__button svg {
+.c-nostr-copy__key {
+  font-family: "DM Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1rem;
+  color: #9AF3FF;
+}
+.c-nostr-copy__message {
+  font-family: "DM Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1rem;
+  color: white;
+}
+.c-nostr-copy__icon {
   color: #00E0FF;
   height: 1em;
+  font-family: "DM Sans", sans-serif;
+  text-transform: lowercase;
+  font-size: 1rem;
+}
+.c-nostr-copy--hover .c-nostr-copy__icon {
+  color: white;
 }
 
 .e-button {

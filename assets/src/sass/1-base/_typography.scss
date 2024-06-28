@@ -53,7 +53,12 @@ $line-height-standard: 1.6;
     font-family:$font-mono;
     text-transform: uppercase;
     letter-spacing: .04em;
-    font-size:1.2rem;
+    font-size:1rem;
+}
+@mixin text-tiny{
+    font-family:$font-sans;
+    text-transform: lowercase;
+    font-size:1rem;
 }
 @mixin text-body{
     font-family: $font-sans;
