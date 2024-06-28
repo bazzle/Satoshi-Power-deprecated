@@ -787,9 +787,6 @@ svg, svg path {
   text-transform: lowercase;
   font-size: 1rem;
 }
-.c-nostr-copy--hover .c-nostr-copy__icon {
-  color: white;
-}
 
 .e-button {
   font-weight: 600;

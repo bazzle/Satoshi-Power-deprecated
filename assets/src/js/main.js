@@ -278,28 +278,31 @@ function nostrKeyDisplay(){
     const copyIcon = document.querySelector('.js-copy-icon');
     
     nostrContainer.innerText = nostrPubKeyDisplay;
-
-    nostrButton.addEventListener('mouseenter',() => {
-        nostrButton.classList.add('c-nostr-copy--hover');
-    });
-    nostrButton.addEventListener('mouseleave',() => {
-        nostrButton.classList.remove('c-nostr-copy--hover');
-    });
     
     nostrButton.addEventListener('click', () => {
+        copyKey();
+    });
+
+    function copyFeedback(){
+        nostrButton.append(copySuccessMessage);
+        copyIcon.remove();
+        console.log('copied');
+        setTimeout(() => {
+            nostrButton.append(copyIcon);
+            copySuccessMessage.remove();
+        }, 2000)
+    }
+
+    function copyKey(){
         navigator.clipboard.writeText(nostrPubKey)
         .then(function() {
-            nostrButton.append(copySuccessMessage);
-            copyIcon.remove();
-            setTimeout(() => {
-                nostrButton.append(copyIcon);
-                copySuccessMessage.remove();
-            }, 2000)
+            console.log('copied');
+            copyFeedback();
         })
         .catch(function(err) {
             console.error('Failed to copy text to clipboard: ', err);
         });
-    });
+    }
 }
 
 nostrKeyDisplay();

@@ -24,11 +24,4 @@
         height: 1em;
         @include text-tiny;
     }
-    &--hover{
-        .c-nostr-copy{
-            &__icon{
-                color: white;
-            }
-        }
-    }
 }
