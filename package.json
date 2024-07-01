@@ -3,46 +3,18 @@
   "version": "1.0.0",
   "description": "Compares the price of a single satoshi with that of the smallest units of each fiat currency.",
   "scripts": {
-    "sass": "sass assets/src/sass/main.scss:assets/dist/css/style.css",
-    "sass-watch": "sass --watch assets/src/sass/main.scss:assets/dist/css/style.css",
-    "postcss": "postcss assets/dist/css/style.css --use autoprefixer -o assets/dist/css/style.css",
-    "build": "yarn sass && yarn postcss && yarn rollup",
-    "stylelint": "stylelint 'assets/src/sass/**/*.scss'",
-    "stylelint-watch": "onchange 'assets/src/sass/**/*.scss' -- yarn stylelint",
-    "rollup": "rollup -c",
-    "watch-js": "rollup -c -w",
-    "watch": "concurrently \"yarn sass-watch\" \"yarn stylelint-watch\" \"yarn serve\" \"yarn watch-js\"",
-    "serve": "browser-sync start --config 'bs-config.js'"
+    "dev": "rollup -w -c 'rollup.config.dev.mjs'",
+    "build": "rollup -c 'rollup.config.prod.mjs'",
+    "browser-sync": "browser-sync start --config 'bs-config.js'",
+    "watch": "concurrently \"yarn dev\" \"yarn browser-sync\""
+
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.16",
-    "browser-sync": "^2.26.16",
-    "concurrently": "^7.0.0",
-    "onchange": "^7.1.0",
-    "postcss": "^8.4.31",
-    "postcss-cli": "^10.1.0",
-    "rollup": "^2.60.0",
-    "rollup-plugin-terser": "^7.0.2",
-    "sass": "^1.45.0",
-    "stylelint": "^14.0.1",
-    "stylelint-config-sass-guidelines": "^10.0.0",
-    "stylelint-config-standard": "^24.0.0"
-  },
-  "stylelint": {
-    "extends": "stylelint-config-sass-guidelines",
-    "ignoreFiles": [
-      "assets/src/sass/0-lib/*.scss"
-    ],
-    "rules": {
-      "rule-empty-line-before": null,
-      "max-nesting-depth": 5,
-      "selector-no-qualifying-type": null,
-      "scss/at-extend-no-missing-placeholder": null,
-      "color-named": null,
-      "selector-max-id": null,
-      "color-hex-length": "long",
-      "property-no-unknown": null,
-      "selector-class-pattern": null
-    }
+    "@rollup/plugin-terser": "^0.4.4",
+    "browser-sync": "^3.0.2",
+    "concurrently": "^8.2.2",
+    "rollup": "^4.18.0",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-sass": "^1.13.0"
   }
 }

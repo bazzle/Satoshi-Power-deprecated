@@ -44,6 +44,8 @@ function dataFetched(){
         const item = buildElement('li', 'c-currencyitem');
         const itemMain = buildElement('div', 'c-currencyitem__main');
         const itemText = buildElement('span', 'c-currencyitem__text');
+        let itemTextString;
+        let itemTextStringsmall;
         itemMain.append(itemText);
         const percentageBar = (percentage) => {
             const width = percentage > 100 ? 100 : percentage;
@@ -57,8 +59,8 @@ function dataFetched(){
         if (smallestUnitKilled){
             item.classList.add('c-currencyitem--smallest-complete');
             // main title
-            let itemTextString = `${unitName} ${unitPercentage}%`;
-            let itemTextStringsmall = `${smallUnitName} ${smallestUnitPercentage}%`;
+            itemTextString = `${unitName} ${unitPercentage}%`;
+            itemTextStringsmall = `${smallUnitName} ${smallestUnitPercentage}%`;
             itemText.innerText = itemTextStringsmall;
             item.addEventListener('mouseenter',() => {
                 itemText.innerText = itemTextString;
@@ -230,7 +232,8 @@ function dataFetched(){
             }
         }
         
-    }
+    };
+
 
     // Do stuff --------------------------------------------
 
@@ -244,7 +247,7 @@ function dataFetched(){
         const deleteDeets = ['15m', 'buy', 'last'];
         deleteDeets.forEach((item) => {
             delete details[item];
-        });
+        })
         addCurrencyDetails(symbol, price, details);
     }
 
@@ -255,7 +258,8 @@ function dataFetched(){
         addToDOM(details['currencyName'], details['smallUnitName'], details['unitPercentage'], details['smallestUnitPercentage'], details['smallestUnitKilled']);
     }
 
-}
+};
+
 
 fetchData();
 
@@ -264,10 +268,10 @@ function nostrKeyDisplay(){
     const nostrPubKey = "npub1y73ajm09j3wra8jj9e3h8rkj3xculh520m9plgc6j57rkg7g0yyqt5p5dt";
     const nostrPubKeyFirstPart = () => {
         return nostrPubKey.substring(0, 15);
-    };
+    }
     const nostrPubKeyLastPart = () => {
         return nostrPubKey.slice(-15);
-    };
+    }
     const nostrPubKeyDisplay = `${nostrPubKeyFirstPart()}...${nostrPubKeyLastPart()}`;
     const copySuccessMessage = buildElement('span','c-nostr-copy__message');
     copySuccessMessage.innerHTML = 'Copied';
@@ -288,7 +292,7 @@ function nostrKeyDisplay(){
         setTimeout(() => {
             nostrButton.append(copyIcon);
             copySuccessMessage.remove();
-        }, 2000);
+        }, 2000)
     }
 
     function copyKey(){
@@ -304,4 +308,3 @@ function nostrKeyDisplay(){
 }
 
 nostrKeyDisplay();
-//# sourceMappingURL=main.min.js.map
