@@ -7,6 +7,8 @@ function fetchModifySortAdd(){
     const container = document.getElementById('js-app');
     // Data
     const tickerFetchUrl = "https://blockchain.info/ticker";
+	// Responsive
+	let mql = window.matchMedia("(max-width: 600px)");
 
     let fetchedData;
 
@@ -55,7 +57,7 @@ function fetchModifySortAdd(){
                 addCurrency(details['currencyName'], details['smallUnitName'], details['unitPercentage'], details['smallestUnitPercentage'], details['smallestUnitKilled']);
             }
         
-            function addCurrency(unitName, smallUnitName, unitPercentage, smallestUnitPercentage,  smallestUnitKilled){
+            function addCurrency(unitName, smallUnitName, unitPercentage, smallestUnitPercentage, smallestUnitKilled){
                 const item = utilities.buildElement('li', 'c-currencyitem');
                 const itemMain = utilities.buildElement('div', 'c-currencyitem__main');
                 const itemText = utilities.buildElement('span', 'c-currencyitem__text');
@@ -68,21 +70,28 @@ function fetchModifySortAdd(){
                     element.style.width = width + '%';
                     return element;
                 };
-                if (smallestUnitPercentage > 100) {
-                    item.classList.add('c-currencyitem--complete');
-                }
                 if (smallestUnitKilled){
-                    item.classList.add('c-currencyitem--smallest-complete');
+                    item.classList.add('c-currencyitem--complete');
                     // main title
                     itemTextString = `${unitName} ${unitPercentage}%`;
                     itemTextStringsmall = `${smallUnitName} ${smallestUnitPercentage}%`;
                     itemText.innerText = itemTextStringsmall;
+					function changePriceValue(newValue){
+						itemText.innerText = newValue;
+					}
+					item.setAttribute('tabindex', 0);
                     item.addEventListener('mouseenter',() => {
-                        itemText.innerText = itemTextString;
+                        changePriceValue(itemTextString);
                     });
                     item.addEventListener('mouseleave',() => {
-                        itemText.innerText = itemTextStringsmall;
+                        changePriceValue(itemTextStringsmall);
                     });
+					item.addEventListener('focus', () => {
+						changePriceValue(itemTextString);
+					});
+					item.addEventListener('blur', () => {
+						changePriceValue(itemTextStringsmall);
+					})
                     item.append(itemMain);
                     itemMain.append(percentageBar(smallestUnitPercentage));
                 } else {

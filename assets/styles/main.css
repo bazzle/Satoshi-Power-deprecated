@@ -442,7 +442,7 @@ a:active {
   outline: 2px solid #00E0FF;
 }
 a:focus {
-  outline: 2px solid #00E0FF;
+  outline: 2px solid #f7931a;
 }
 
 button {
@@ -685,6 +685,7 @@ svg, svg path {
   border: 2px solid #f7931a;
   display: block;
   position: relative;
+  cursor: default;
 }
 .c-currencyitem__main {
   width: 100%;
@@ -727,6 +728,10 @@ svg, svg path {
   border-color: #9AF3FF;
   cursor: pointer;
 }
+.c-currencyitem:focus-visible {
+  outline: 2px solid #f7931a;
+  border-color: transparent;
+}
 
 .c-logo-lockup {
   display: flex;
@@ -765,6 +770,9 @@ svg, svg path {
   height: 2em;
   border-radius: 2em;
   padding: 0 1em;
+}
+.c-nostr-copy__button:focus {
+  outline: 2px solid #f7931a;
 }
 .c-nostr-copy__key {
   font-family: "DM Mono", monospace;
