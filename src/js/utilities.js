@@ -1,4 +1,4 @@
-const utilities = {
+const Utilities = {
     buildElement : (ElementType, elementClassName) => {
         const domElement = document.createElement(ElementType);
         domElement.classList.add(elementClassName);
@@ -9,4 +9,4 @@ const utilities = {
     }
 }
 
-export default utilities;
+export default Utilities;

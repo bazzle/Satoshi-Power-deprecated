@@ -1,6 +1,5 @@
-import fetchModifySortAdd from "./data-fetch-add";
+import DataFetchDisplay from "./DataFetchDisplay";
 import nostrKeyDisplay from "./nostr-key";
 
-
-fetchModifySortAdd();
+DataFetchDisplay();
 nostrKeyDisplay();

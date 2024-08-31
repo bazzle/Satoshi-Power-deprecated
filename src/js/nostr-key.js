@@ -1,4 +1,4 @@
-import utilities from './utilities';
+import Utilities from './Utilities.js';
 
 function nostrKeyDisplay(){
 
@@ -10,7 +10,7 @@ function nostrKeyDisplay(){
         return nostrPubKey.slice(-15);
     }
     const nostrPubKeyDisplay = `${nostrPubKeyFirstPart()}...${nostrPubKeyLastPart()}`;
-    const copySuccessMessage = utilities.buildElement('span','c-nostr-copy__message');
+    const copySuccessMessage = Utilities.buildElement('span','c-nostr-copy__message');
     copySuccessMessage.innerHTML = 'Copied';
     const nostrContainer = document.getElementById('js-nostr-key');
     const nostrButton = document.getElementById('js-nostr-copy');
