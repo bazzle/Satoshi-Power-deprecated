@@ -1,5 +1,5 @@
 import DataFetchDisplay from "./DataFetchDisplay";
-import nostrKeyDisplay from "./nostr-key";
+import nostrKeyDisplay from "./NostrKeyDisplay";
 
 DataFetchDisplay();
 nostrKeyDisplay();

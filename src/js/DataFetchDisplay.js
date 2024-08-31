@@ -15,9 +15,7 @@ async function DataFetchDisplay(){
 		console.log('No data');
 	} finally {
 		DataModify(fetchedData);
-		console.log(fetchedData);
-		DataSort(fetchedData);
-		console.log(fetchedData);
+		fetchedData = DataSort(fetchedData);
 		container.append(currencyGrid);
 		for (const currencyItem in fetchedData) {
 			let details = fetchedData[currencyItem];

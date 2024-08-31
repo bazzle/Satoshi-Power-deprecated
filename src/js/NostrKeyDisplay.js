@@ -1,6 +1,6 @@
 import Utilities from './Utilities.js';
 
-function nostrKeyDisplay(){
+function NostrKeyDisplay(){
 
     const nostrPubKey = "npub1y73ajm09j3wra8jj9e3h8rkj3xculh520m9plgc6j57rkg7g0yyqt5p5dt";
     const nostrPubKeyFirstPart = () => {
@@ -45,4 +45,4 @@ function nostrKeyDisplay(){
 }
 
 
-export default nostrKeyDisplay;
+export default NostrKeyDisplay;
