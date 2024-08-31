@@ -1,14 +1,14 @@
 import Utilities from "./Utilities.js";
 
 // Additional details object constructor
-function additionalDetails(price, currencyName, smallUnitName){
-    this.currencyName = currencyName;
+function additionalDetails(price, unitName, smallUnitName){
+    this.unitName = unitName;
     this.unitPrice = price / 100000000;
     this.unitPercentage = Utilities.getPercentage(this.unitPrice);
     this.smallUnitName = smallUnitName;
-    this.smallestUnitPrice = this.currencyName === this.smallUnitName ? this.unitPrice : price * 100 / 100000000;
-    this.smallestUnitPercentage = Utilities.getPercentage(this.smallestUnitPrice);
-    this.smallestUnitKilled = this.currencyName != this.smallUnitName && this.smallestUnitPercentage > 100;
+    this.smallUnitPrice = this.unitName === this.smallUnitName ? this.unitPrice : price * 100 / 100000000;
+    this.smallUnitPercentage = Utilities.getPercentage(this.smallUnitPrice);
+    this.smallestUnitKilled = this.unitName != this.smallUnitName && this.smallUnitPercentage > 100;
 }
 
 // Add new rows to currency
