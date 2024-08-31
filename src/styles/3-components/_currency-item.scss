@@ -32,6 +32,7 @@
         height: 100%;
     }
     &--complete{
+		border-color: $color-accent--light;
         .c-currencyitem{
             &__text{
                 color: $color-text-reverse;

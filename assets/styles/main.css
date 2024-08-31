@@ -718,6 +718,9 @@ svg, svg path {
   background-color: #D67600;
   height: 100%;
 }
+.c-currencyitem--complete {
+  border-color: #9AF3FF;
+}
 .c-currencyitem--complete .c-currencyitem__text {
   color: #000000;
 }
