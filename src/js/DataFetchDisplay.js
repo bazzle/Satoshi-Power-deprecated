@@ -18,7 +18,6 @@ async function DataFetchDisplay(){
 		DataModify(fetchedData);
 		fetchedData = DataSort(fetchedData);
 		for (const currencyItem in fetchedData) {
-			console.log(fetchedData[currencyItem]);
 			DomAddCurrency(fetchedData[currencyItem]);
 		}
 	}
