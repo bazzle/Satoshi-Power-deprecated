@@ -1,6 +1,6 @@
-import utilities from './utilities';
+import Utilities from './Utilities.js';
 
-function nostrKeyDisplay(){
+function NostrKeyDisplay(){
 
     const nostrPubKey = "npub1y73ajm09j3wra8jj9e3h8rkj3xculh520m9plgc6j57rkg7g0yyqt5p5dt";
     const nostrPubKeyFirstPart = () => {
@@ -10,7 +10,7 @@ function nostrKeyDisplay(){
         return nostrPubKey.slice(-15);
     }
     const nostrPubKeyDisplay = `${nostrPubKeyFirstPart()}...${nostrPubKeyLastPart()}`;
-    const copySuccessMessage = utilities.buildElement('span','c-nostr-copy__message');
+    const copySuccessMessage = Utilities.buildElement('span','c-nostr-copy__message');
     copySuccessMessage.innerHTML = 'Copied';
     const nostrContainer = document.getElementById('js-nostr-key');
     const nostrButton = document.getElementById('js-nostr-copy');
@@ -45,4 +45,4 @@ function nostrKeyDisplay(){
 }
 
 
-export default nostrKeyDisplay;
+export default NostrKeyDisplay;

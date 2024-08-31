@@ -1,5 +1,5 @@
 # Theme Ignores
-assets/dist/style.css.map
+/dist/
 
 
 # Compiled source #

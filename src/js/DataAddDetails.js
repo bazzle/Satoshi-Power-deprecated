@@ -1,16 +1,18 @@
-import utilities from "./utilities";
+import Utilities from "./Utilities.js";
 
-function additionalDetails(price, currencyName, smallUnitName){
-    this.currencyName = currencyName;
+// Additional details object constructor
+function additionalDetails(price, unitName, smallUnitName){
+    this.unitName = unitName;
     this.unitPrice = price / 100000000;
-    this.unitPercentage = utilities.getPercentage(this.unitPrice);
+    this.unitPercentage = Utilities.getPercentage(this.unitPrice);
     this.smallUnitName = smallUnitName;
-    this.smallestUnitPrice = this.currencyName === this.smallUnitName ? this.unitPrice : price * 100 / 100000000;
-    this.smallestUnitPercentage = utilities.getPercentage(this.smallestUnitPrice);
-    this.smallestUnitKilled = this.currencyName != this.smallUnitName && this.smallestUnitPercentage > 100;
+    this.smallUnitPrice = this.unitName === this.smallUnitName ? this.unitPrice : price * 100 / 100000000;
+    this.smallUnitPercentage = Utilities.getPercentage(this.smallUnitPrice);
+    this.smallestUnitKilled = this.unitName != this.smallUnitName && this.smallUnitPercentage > 100;
 }
 
-function addCurrencyDetails(symbol, price, data){
+// Add new rows to currency
+function DataAddDetails(symbol, price, data){
     switch (symbol) {
         case "ARS" : {
             const newData = new additionalDetails(price, 'Argentine Peso', 'Argentine Peso');
@@ -157,4 +159,4 @@ function addCurrencyDetails(symbol, price, data){
 };
 
 
-export default addCurrencyDetails;
+export default DataAddDetails;

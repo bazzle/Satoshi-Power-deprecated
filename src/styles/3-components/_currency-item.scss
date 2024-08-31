@@ -1,47 +1,54 @@
 .c-currencyitem{
     border: 2px solid $color-primary;
-    display: block;
+    display: flex;
+	flex-direction: column;
+	gap: .3rem;
     position: relative;
+	cursor: default;
+	padding: .3rem;
     &__main{
-        width: 100%;
-        height: 100%;
         display: block;
         position: relative;
-        width: calc(100% - 6px);
-        height: calc(100% - 6px);
+    }
+	&__secondary{
+        display: block;
+        position: relative;
+    }
+	&__percentage-bar{
+        position: absolute;
+		top: 0;
+		left: 0;
+        background-color: $color-bitcoin-accessible;
+        height: 100%;
     }
     &__text{
         @include text-blocky;
-        line-height: 1;
         color: white;
         text-align: right;
         display: block;
-        padding: .25em .1em .2em;
+        padding: .15em .25em .1em;
         z-index: 1;
         position: relative;
     }
     &__smallunit{
         display: none;
     }
-    &__percentage-bar{
-        position: absolute;
-        left: 3px;
-        top: 3px;
-        background-color: $color-bitcoin-accessible;
-        height: 100%;
-    }
-    &--complete{
+    &--killed{
+		border-color: $color-accent--light;
         .c-currencyitem{
-            &__text{
-                color: $color-text-reverse;
-            }
-            &__percentage-bar{
-                background-color: $color-bitcoin;
-            }
+			&__main{
+				.c-currencyitem__percentage-bar{
+					background-color: $color-bitcoin;
+				}
+				.c-currencyitem__text{
+					color: black;
+				}
+			}
         }
     }
-    &--smallest-complete{
-        border-color: $color-accent--light;
-        cursor:pointer;
-    }
+
+	&:focus-visible{
+		outline: 2px solid $color-focus;
+		border-color: transparent;
+	}
 }

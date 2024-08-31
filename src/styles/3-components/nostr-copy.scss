@@ -10,6 +10,9 @@
         height: 2em;
         border-radius: 2em;
         padding: 0 1em;
+		&:focus{
+    		outline: 2px solid $color-focus;
+  		}
     }
     &__key{
         @include text-meta-tiny;
