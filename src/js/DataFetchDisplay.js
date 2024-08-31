@@ -14,18 +14,11 @@ async function DataFetchDisplay(){
 	} catch (error) {
 		console.log('No data');
 	} finally {
+		container.append(currencyGrid);
 		DataModify(fetchedData);
 		fetchedData = DataSort(fetchedData);
-		container.append(currencyGrid);
 		for (const currencyItem in fetchedData) {
-			let details = fetchedData[currencyItem];
-			DomAddCurrency(
-				details['currencyName'],
-				details['smallUnitName'],
-				details['unitPercentage'],
-				details['smallestUnitPercentage'],
-				details['smallestUnitKilled']
-			);
+			DomAddCurrency(fetchedData[currencyItem]);
 		}
 	}
 }

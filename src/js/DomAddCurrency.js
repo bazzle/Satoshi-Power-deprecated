@@ -1,52 +1,69 @@
 import Utilities from "./Utilities.js";
 import {currencyGrid} from "./Variables.js";
+import DomPercentageBar from "./DomPercentageBar.js";
 
 // Adds currency to the DOM
 
-function DomAddCurrency(unitName, smallUnitName, unitPercentage, smallestUnitPercentage, smallestUnitKilled){
+function DomAddCurrency(obj){
+	const mql = window.matchMedia('(max-width: 600px)');
+
+	const unitName = obj.unitName;
+	const unitPrice = obj.unitPrice;
+	const unitPercentage = obj.unitPercentage;
+	const smallUnitName = obj.smallUnitName;
+	const smallUnitPrice = obj.smallUnitPrice;
+	const smallUnitPercentage = obj.smallUnitPercentage;
+	const smallestUnitKilled = obj.smallestUnitKilled;
+	let itemMain;
+	let itemSecondary;
+
+	let itemTextString = unitPercentage < 1 ? `${unitName} <1%` : `${unitName} ${unitPercentage}%`;
+	let itemTextStringSmall = `${smallUnitName} ${smallUnitPercentage}%`;
+
 	const item = Utilities.buildElement('li', 'c-currencyitem');
-	const itemMain = Utilities.buildElement('div', 'c-currencyitem__main');
-	const itemText = Utilities.buildElement('span', 'c-currencyitem__text');
-	let itemTextString;
-	let itemTextStringsmall;
-	itemMain.append(itemText);
-	const percentageBar = (percentage) => {
-		const width = percentage > 100 ? 100 : percentage;
-		const element = Utilities.buildElement('span', 'c-currencyitem__percentage-bar');
-		element.style.width = width + '%';
-		return element;
-	};
+
+	itemMain = Utilities.buildElement('div', 'c-currencyitem__main');
+	const itemMainText = Utilities.buildElement('span', 'c-currencyitem__text');
+	itemMain.append(itemMainText);
+	itemMain.append(DomPercentageBar(smallUnitPercentage));
+	itemMainText.innerText = itemTextStringSmall;
+	item.append(itemMain);
 	if (smallestUnitKilled){
-		item.classList.add('c-currencyitem--complete');
-		// main title
-		itemTextString = `${unitName} ${unitPercentage}%`;
-		itemTextStringsmall = `${smallUnitName} ${smallestUnitPercentage}%`;
-		itemText.innerText = itemTextStringsmall;
-		function changePriceValue(newValue){
-			itemText.innerText = newValue;
+		item.classList.add('c-currencyitem--killed');
+		const itemSecondary = Utilities.buildElement('div','c-currencyitem__secondary');
+		const itemSecondaryText = Utilities.buildElement('span', 'c-currencyitem__text');
+		itemSecondary.append(itemSecondaryText);
+		itemSecondaryText.innerText = itemTextString;
+		itemSecondary.append(DomPercentageBar(unitPercentage));
+		function responsiveBehaviour(){
+			function handleMouseEnter(){
+				itemMainText.innerText = itemTextString;
+			};
+			function handleMouseLeave(){
+				itemMainText.innerText = itemTextStringSmall;
+			}
+			if(mql.matches){
+				// Mobile
+				item.append(itemSecondary);
+				item.removeEventListener('mouseenter', handleMouseEnter);
+				item.removeEventListener('mouseleave', handleMouseLeave);
+			} else {
+				// Desktop
+				itemSecondary.remove();
+				item.addEventListener('mouseenter', handleMouseEnter);
+				item.addEventListener('mouseleave', handleMouseLeave);
+			}
 		}
-		item.setAttribute('tabindex', 0);
-		item.addEventListener('mouseenter',() => {
-			changePriceValue(itemTextString);
+		responsiveBehaviour();
+		let resizeTimeout;
+		window.addEventListener('resize', () => {
+			clearTimeout(resizeTimeout);
+			resizeTimeout = setTimeout(() => {
+				responsiveBehaviour();
+			}, 200);
 		});
-		item.addEventListener('mouseleave',() => {
-			changePriceValue(itemTextStringsmall);
-		});
-		item.addEventListener('focus', () => {
-			changePriceValue(itemTextString);
-		});
-		item.addEventListener('blur', () => {
-			changePriceValue(itemTextStringsmall);
-		})
-		item.append(itemMain);
-		itemMain.append(percentageBar(smallestUnitPercentage));
-	} else {
-		// main title
-		itemTextString = smallUnitName < 1 ? `${smallestUnitPercentage} <1%` : `${smallUnitName} ${smallestUnitPercentage}%`;
-		itemText.innerText = itemTextString;
-		item.append(itemMain);
-		itemMain.append(percentageBar(smallestUnitPercentage));
 	}
+
 
 	currencyGrid.append(item);
 }
