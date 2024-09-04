@@ -8,14 +8,11 @@ function DomAddCurrency(obj){
 	const mql = window.matchMedia('(max-width: 600px)');
 
 	const unitName = obj.unitName;
-	const unitPrice = obj.unitPrice;
 	const unitPercentage = obj.unitPercentage;
 	const smallUnitName = obj.smallUnitName;
-	const smallUnitPrice = obj.smallUnitPrice;
 	const smallUnitPercentage = obj.smallUnitPercentage;
 	const smallestUnitKilled = obj.smallestUnitKilled;
 	let itemMain;
-	let itemSecondary;
 
 	let itemTextString = unitPercentage < 1 ? `${unitName} <1%` : `${unitName} ${unitPercentage}%`;
 	let itemTextStringSmall = `${smallUnitName} ${smallUnitPercentage}%`;
