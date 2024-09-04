@@ -26,6 +26,7 @@ function DomAddCurrency(obj){
 	itemMainText.innerText = itemTextStringSmall;
 	item.append(itemMain);
 	if (smallestUnitKilled){
+		item.setAttribute('tabindex', 0);
 		item.classList.add('c-currencyitem--killed');
 		const itemSecondary = Utilities.buildElement('div','c-currencyitem__secondary');
 		const itemSecondaryText = Utilities.buildElement('span', 'c-currencyitem__text');
