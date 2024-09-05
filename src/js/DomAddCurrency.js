@@ -18,26 +18,32 @@ function DomAddCurrency(obj){
 	let itemTextStringSmall = `${smallUnitName} ${smallUnitPercentage}%`;
 
 	const item = Utilities.buildElement('li', 'c-currencyitem');
-
+	const itemPercentageBar = DomPercentageBar(unitPercentage);
+	const itemPercentageBarSmallUnit = DomPercentageBar(smallUnitPercentage);
+	const iconContainer = Utilities.buildElement('div', 'c-currencyitem__icon');
 	itemMain = Utilities.buildElement('div', 'c-currencyitem__main');
 	const itemMainText = Utilities.buildElement('span', 'c-currencyitem__text');
 	itemMain.append(itemMainText);
-	itemMain.append(DomPercentageBar(smallUnitPercentage));
+	itemMain.append(itemPercentageBarSmallUnit);
+	itemMain.append(iconContainer);
 	itemMainText.innerText = itemTextStringSmall;
 	item.append(itemMain);
 	if (smallestUnitKilled){
+		item.setAttribute('tabindex', 0);
 		item.classList.add('c-currencyitem--killed');
 		const itemSecondary = Utilities.buildElement('div','c-currencyitem__secondary');
 		const itemSecondaryText = Utilities.buildElement('span', 'c-currencyitem__text');
 		itemSecondary.append(itemSecondaryText);
 		itemSecondaryText.innerText = itemTextString;
-		itemSecondary.append(DomPercentageBar(unitPercentage));
+		itemSecondary.append(itemPercentageBar);
 		function responsiveBehaviour(){
 			function handleMouseEnter(){
-				itemMainText.innerText = itemTextString;
+				item.append(itemSecondary);
+				itemMain.remove();
 			};
 			function handleMouseLeave(){
-				itemMainText.innerText = itemTextStringSmall;
+				item.append(itemMain);
+				itemSecondary.remove();
 			}
 			if(mql.matches){
 				// Mobile
