@@ -1,0 +1,44 @@
+.cookie-banner{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	align-items: center;
+	z-index: 1;
+	gap: 1em;
+	margin-right: 3rem;
+	display: flex;
+	flex-direction: column;
+	padding: 2.5rem 2rem;
+	background-color: black;
+	@include break(tablet){
+		left: 3rem;
+		bottom: 3rem;
+		padding: .5em;
+		padding-right: .5em;
+		padding-left: 1.5rem;
+		flex-direction: row;
+		width: unset;
+		background-color: $color-bg-2;
+	}
+	&__notice{
+		text-align: center;
+		@include break(tablet){
+			text-align: left;
+		}
+	}
+	&__button{
+		flex-shrink: 0;
+		background: $color-bitcoin-accessible;
+		color: black;
+		padding: .5em;
+		@include text-blocky-small-lower;
+		&:hover{
+			background-color: $color-bitcoin;
+		}
+		&:focus-visible{
+			outline: 2px solid $color-focus;
+			outline-offset: 2px;
+		}
+	}
+}
