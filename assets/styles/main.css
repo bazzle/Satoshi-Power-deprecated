@@ -733,7 +733,7 @@ svg, svg path {
   position: absolute;
   top: 50%;
   left: 0.6rem;
-  transform: translateY(-50%);
+  transform: translateY(-55%);
   width: 20px;
   height: 20px;
   display: block;
