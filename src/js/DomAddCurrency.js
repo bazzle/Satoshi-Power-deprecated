@@ -38,11 +38,12 @@ function DomAddCurrency(obj){
 		itemSecondary.append(itemPercentageBar);
 		function responsiveBehaviour(){
 			function handleMouseEnter(){
-				itemMainText.innerText = itemTextString;
-				itemPercentageBar.style.backgroundImage = 'none';
+				item.append(itemSecondary);
+				itemMain.remove();
 			};
 			function handleMouseLeave(){
-				itemMainText.innerText = itemTextStringSmall;
+				item.append(itemMain);
+				itemSecondary.remove();
 			}
 			if(mql.matches){
 				// Mobile
