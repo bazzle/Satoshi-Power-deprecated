@@ -18,11 +18,14 @@ function DomAddCurrency(obj){
 	let itemTextStringSmall = `${smallUnitName} ${smallUnitPercentage}%`;
 
 	const item = Utilities.buildElement('li', 'c-currencyitem');
-
+	const itemPercentageBar = DomPercentageBar(unitPercentage);
+	const itemPercentageBarSmallUnit = DomPercentageBar(smallUnitPercentage);
+	const iconContainer = Utilities.buildElement('div', 'c-currencyitem__icon');
 	itemMain = Utilities.buildElement('div', 'c-currencyitem__main');
 	const itemMainText = Utilities.buildElement('span', 'c-currencyitem__text');
 	itemMain.append(itemMainText);
-	itemMain.append(DomPercentageBar(smallUnitPercentage));
+	itemMain.append(itemPercentageBarSmallUnit);
+	itemMain.append(iconContainer);
 	itemMainText.innerText = itemTextStringSmall;
 	item.append(itemMain);
 	if (smallestUnitKilled){
@@ -32,10 +35,11 @@ function DomAddCurrency(obj){
 		const itemSecondaryText = Utilities.buildElement('span', 'c-currencyitem__text');
 		itemSecondary.append(itemSecondaryText);
 		itemSecondaryText.innerText = itemTextString;
-		itemSecondary.append(DomPercentageBar(unitPercentage));
+		itemSecondary.append(itemPercentageBar);
 		function responsiveBehaviour(){
 			function handleMouseEnter(){
 				itemMainText.innerText = itemTextString;
+				itemPercentageBar.style.backgroundImage = 'none';
 			};
 			function handleMouseLeave(){
 				itemMainText.innerText = itemTextStringSmall;
