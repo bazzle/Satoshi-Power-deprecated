@@ -29,16 +29,6 @@
 	}
 	&__button{
 		flex-shrink: 0;
-		background: $color-bitcoin-accessible;
-		color: black;
-		padding: .5em;
-		@include text-blocky-small-lower;
-		&:hover{
-			background-color: $color-bitcoin;
-		}
-		&:focus-visible{
-			outline: 2px solid $color-focus;
-			outline-offset: 2px;
-		}
+		@extend .c-button;
 	}
 }

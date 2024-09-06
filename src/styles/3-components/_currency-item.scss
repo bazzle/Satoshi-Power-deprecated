@@ -22,7 +22,7 @@
         height: 100%;
     }
     &__text{
-        @include text-blocky;
+        @include text-heading;
         color: white;
         text-align: right;
         display: block;

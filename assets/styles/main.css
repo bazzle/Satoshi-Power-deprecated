@@ -696,20 +696,6 @@ svg, svg path {
 }
 .o-cookie-banner__button {
   flex-shrink: 0;
-  background: #D67600;
-  color: black;
-  padding: 0.5em;
-  font-family: "DM Sans", sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.2;
-  font-variation-settings: "wght" 700, "opsz" 9;
-}
-.o-cookie-banner__button:hover {
-  background-color: #f7931a;
-}
-.o-cookie-banner__button:focus-visible {
-  outline: 2px solid #00E0FF;
-  outline-offset: 2px;
 }
 
 .o-footer {
@@ -781,7 +767,6 @@ svg, svg path {
   font-family: "Bebas Neue", sans-serif;
   font-size: 2.6rem;
   line-height: 1;
-  font-variation-settings: "wght" 700;
   color: white;
   text-align: right;
   display: block;
@@ -829,7 +814,6 @@ svg, svg path {
   font-family: "Bebas Neue", sans-serif;
   font-size: 2.6rem;
   line-height: 1;
-  font-variation-settings: "wght" 700;
   font-size: 4.6rem;
 }
 .c-logo-lockup__subtitle {
@@ -880,31 +864,18 @@ svg, svg path {
   font-size: 1rem;
 }
 
-.e-button {
-  font-weight: 600;
-  font-size: 3rem;
-  font-size: 1.4rem;
-  position: relative;
-  display: inline-block;
-  width: auto;
-  padding: 1em 1.2em;
-  border: 1px solid #00E0FF;
-  color: white;
-  text-align: center;
+.c-button, .o-cookie-banner__button {
+  font-variation-settings: "wght" 700, "opsz" 9;
   text-transform: uppercase;
-  cursor: pointer;
-  transition-duration: 0.2s;
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.8, 0, 0.3, 1);
-}
-.e-button:hover {
-  color: #00E0FF;
-}
-.e-button:active {
-  color: #00E0FF;
-}
-.e-button:focus {
+  font-size: 1.2rem;
+  background: #D67600;
   color: black;
-  background: #00E0FF;
-  outline: none;
+  padding: 0.4em 0.8em;
+}
+.c-button:hover, .o-cookie-banner__button:hover {
+  background-color: #f7931a;
+}
+.c-button:focus-visible, .o-cookie-banner__button:focus-visible {
+  outline: 2px solid #00E0FF;
+  outline-offset: 2px;
 }
