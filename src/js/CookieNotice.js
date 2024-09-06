@@ -5,9 +5,9 @@ function CookieNotice(){
 	const main = document.querySelector('main');
 
 	// Create element
-	const cookieNotice = Utilities.buildElement('div','cookie-banner');
-	const cookieNoticeParagraph = Utilities.buildElement('p', 'cookie-banner__notice');
-	const cookieNoticeButton = Utilities.buildElement('button','cookie-banner__button');
+	const cookieNotice = Utilities.buildElement('div','o-cookie-banner');
+	const cookieNoticeParagraph = Utilities.buildElement('p', 'o-cookie-banner__notice');
+	const cookieNoticeButton = Utilities.buildElement('button','o-cookie-banner__button');
 	cookieNotice.append(cookieNoticeParagraph);
 	cookieNotice.append(cookieNoticeButton);
 	// Populate text

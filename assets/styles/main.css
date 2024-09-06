@@ -660,7 +660,7 @@ svg, svg path {
   }
 }
 
-.cookie-banner {
+.o-cookie-banner {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -675,7 +675,7 @@ svg, svg path {
   background-color: black;
 }
 @media screen and (min-width: 40.063em) {
-  .cookie-banner {
+  .o-cookie-banner {
     left: 3rem;
     bottom: 3rem;
     padding: 0.5em;
@@ -686,15 +686,15 @@ svg, svg path {
     background-color: #151515;
   }
 }
-.cookie-banner__notice {
+.o-cookie-banner__notice {
   text-align: center;
 }
 @media screen and (min-width: 40.063em) {
-  .cookie-banner__notice {
+  .o-cookie-banner__notice {
     text-align: left;
   }
 }
-.cookie-banner__button {
+.o-cookie-banner__button {
   flex-shrink: 0;
   background: #D67600;
   color: black;
@@ -704,10 +704,10 @@ svg, svg path {
   line-height: 1.2;
   font-variation-settings: "wght" 700, "opsz" 9;
 }
-.cookie-banner__button:hover {
+.o-cookie-banner__button:hover {
   background-color: #f7931a;
 }
-.cookie-banner__button:focus-visible {
+.o-cookie-banner__button:focus-visible {
   outline: 2px solid #00E0FF;
   outline-offset: 2px;
 }
