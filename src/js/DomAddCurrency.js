@@ -1,12 +1,11 @@
 import Utilities from "./Utilities.js";
 import {currencyGrid} from "./Variables.js";
 import DomPercentageBar from "./DomPercentageBar.js";
+import DomCurrencyInteractivity from "./DomCurrencyInteractivity.js";
 
 // Adds currency to the DOM
 
 function DomAddCurrency(obj){
-	const mql = window.matchMedia('(max-width: 600px)');
-
 	const unitName = obj.unitName;
 	const unitPercentage = obj.unitPercentage;
 	const smallUnitName = obj.smallUnitName;
@@ -36,35 +35,7 @@ function DomAddCurrency(obj){
 		itemSecondary.append(itemSecondaryText);
 		itemSecondaryText.innerText = itemTextString;
 		itemSecondary.append(itemPercentageBar);
-		function responsiveBehaviour(){
-			function handleMouseEnter(){
-				item.append(itemSecondary);
-				itemMain.remove();
-			};
-			function handleMouseLeave(){
-				item.append(itemMain);
-				itemSecondary.remove();
-			}
-			if(mql.matches){
-				// Mobile
-				item.append(itemSecondary);
-				item.removeEventListener('mouseenter', handleMouseEnter);
-				item.removeEventListener('mouseleave', handleMouseLeave);
-			} else {
-				// Desktop
-				itemSecondary.remove();
-				item.addEventListener('mouseenter', handleMouseEnter);
-				item.addEventListener('mouseleave', handleMouseLeave);
-			}
-		}
-		responsiveBehaviour();
-		let resizeTimeout;
-		window.addEventListener('resize', () => {
-			clearTimeout(resizeTimeout);
-			resizeTimeout = setTimeout(() => {
-				responsiveBehaviour();
-			}, 200);
-		});
+		DomCurrencyInteractivity(item, itemMain, itemSecondary);
 	}
 
 
