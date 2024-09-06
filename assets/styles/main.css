@@ -521,6 +521,16 @@ svg, svg path {
   border: 0 !important;
 }
 
+.o-main {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 40.063em) {
+  .o-main__about {
+    order: 1;
+  }
+}
+
 .o-row {
   width: 100%;
   margin-top: calc(1rem * 1);
@@ -619,6 +629,16 @@ svg, svg path {
 .o-header__container {
   display: flex;
   justify-content: center;
+}
+
+.o-about__inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.o-about__inner p {
+  text-align: center;
 }
 
 .o-currencygrid {
