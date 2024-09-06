@@ -1,5 +1,7 @@
 function DomCurrencyInteractivity(item, itemMain, itemSecondary){
 
+	const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
 	function handleActive(){
 		item.append(itemSecondary);
 		itemMain.remove();
@@ -7,20 +9,6 @@ function DomCurrencyInteractivity(item, itemMain, itemSecondary){
 	function handleDeactive(){
 		item.append(itemMain);
 		itemSecondary.remove();
-	}
-	function handleFocus(){
-		let itemActive = false;
-		item.addEventListener('keydown',function(evt){
-			if (evt.key === 'Enter'){
-				if (itemActive === false){
-					handleActive();
-					itemActive = true;
-				} else {
-					handleDeactive();
-					itemActive = false;
-				}
-			}
-		});
 	}
 
 	function responsiveBehaviour(){
@@ -37,9 +25,10 @@ function DomCurrencyInteractivity(item, itemMain, itemSecondary){
 			item.addEventListener('mouseleave', handleDeactive);
 		}
 	}
-
-	item.addEventListener('focus', handleFocus);
-	item.addEventListener('blur', handleDeactive);
+	if (!isTouchDevice){
+		item.addEventListener('focus', handleActive);
+		item.addEventListener('blur', handleDeactive);
+	}
 
 	responsiveBehaviour();
 
