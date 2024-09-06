@@ -12,7 +12,7 @@ Compares the price of a single satoshi with that of the smallest units of each f
 4. Achieve fame amongst many plebs
 
 
-## CUrrencies
+## Currencies
 
 ARS : Argentine Peso
 AUD : Australian Dollar
