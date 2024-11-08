@@ -14,33 +14,16 @@ $line-height-standard: 1.6;
 
 // Header – Site name and tagline
 
-@mixin text-site-name{
-    font-family: $font-sans;
-    text-transform: uppercase;
-    font-size: 1.4rem;
-    font-variation-settings: "wght" 1000, 'opsz' 9;
-}
-@mixin text-site-tagline{
-    font-size: 1.2rem;
-    font-family: $font-mono;
-}
-@mixin text-blocky{
+@mixin text-heading{
     font-family: $font-heading;
     font-size: 2.6rem;
     line-height: 1;
-    font-variation-settings: "wght" 700;
 }
 @mixin text-blocky-small{
     font-family: $font-sans;
     text-transform: uppercase;
     font-size: 1.2rem;
     line-height: 1;
-    font-variation-settings: "wght" 700, 'opsz' 9;
-}
-@mixin text-blocky-small-lower{
-    font-family: $font-sans;
-    font-size: 1.2rem;
-    line-height: 1.2;
     font-variation-settings: "wght" 700, 'opsz' 9;
 }
 @mixin text-meta{
@@ -76,22 +59,6 @@ $line-height-standard: 1.6;
     line-height: 1.4;
     color: $color-primary;
 }
-@mixin text-blockquote{
-    font-variation-settings: "wght" 500;
-    font-family: $font-sans;
-    font-size: clamp(1.8rem, 2vw, 2.2rem);
-    line-height: 1.4;
-}
-@mixin text-cite{
-    font-family: $font-sans;
-    font-size: clamp(1.4rem, 1.8vw, 1.8rem);
-    font-variation-settings: "wght" 300;
-    font-style: italic;
-}
-@mixin text-button{
-    font-weight: 600;
-    font-size: 3rem;
-}
 
 // Misc global elements
 
@@ -104,7 +71,6 @@ $line-height-standard: 1.6;
 @mixin paragraphdefaults{
     color: inherit;
     line-height: 1.8;
-    @include text-body;
     @include gap(margin-bottom);
 }
 
@@ -151,41 +117,6 @@ $line-height-standard: 1.6;
         color: $color-accent;
         content: counter(item) '. ';
         }
-    }
-} 
-  
-// body text formatting
-  
-@mixin text-format {
-    @include text-body;
-    a{
-        @include text-body-link;
-    }
-    h2, h3, h4, h5, p, a, ol, hr, blockquote{
-        @include gap(margin-bottom, 1);
-    }
-    h2{
-        @include text-body-heading;
-        @include gap(margin-top);
-        @include gap(margin-bottom);
-    }
-    h3{
-        @include text-body-heading;
-        @include gap(margin-top);
-        @include gap(margin-bottom);
-    }
-    b, strong{
-        @include text-body-strong;
-    }
-    p{
-        color: inherit;
-        @include gap(margin-bottom);
-    }
-    ul{
-        @include ullistdefaults;
-    }
-    ol{
-        @include ollistdefaults;
     }
 }
 

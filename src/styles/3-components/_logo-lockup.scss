@@ -6,7 +6,7 @@
         margin-right: 2rem;
     }
     &__sitename{
-        @include text-blocky;
+        @include text-heading;
         font-size: 4.6rem;
     }
     &__subtitle{

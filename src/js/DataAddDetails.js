@@ -124,11 +124,11 @@ function DataAddDetails(symbol, price, data){
             Object.assign(data, newData);
             break;
         }
-        case "SEK" : {
-            const newData = new additionalDetails(price, 'Swedish Krona', 'Swedish Öre');
-            Object.assign(data, newData);
-            break;
-        }
+        // case "SEK" : {
+        //     const newData = new additionalDetails(price, 'Swedish Krona', 'Swedish Öre');
+        //     Object.assign(data, newData);
+        //     break;
+        // }
         case "SGD" : {
             const newData = new additionalDetails(price, 'Singapore Dollar', 'Singapore Cent');
             Object.assign(data, newData);
@@ -154,6 +154,14 @@ function DataAddDetails(symbol, price, data){
             Object.assign(data, newData);
             break;
         }
+		case "NGN" : {
+            const newData = new additionalDetails(price, 'Nigerian Naira', 'Nigerian Kobo');
+            Object.assign(data, newData);
+            break;
+        }
+		default : {
+			break;
+		}
     }
     
 };

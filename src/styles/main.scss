@@ -9,13 +9,15 @@
 @import '1-base/base';
 @import '1-base/utilities';
 
+@import '2-objects/main';
 @import '2-objects/row';
 @import '2-objects/header';
+@import '2-objects/about';
 @import '2-objects/currency-grid';
+@import '2-objects/cookie-banner';
 @import '2-objects/footer';
 
 @import '3-components/currency-item';
 @import '3-components/logo-lockup';
 @import '3-components/nostr-copy';
-
-@import '4-elements/button';
+@import '3-components/button';

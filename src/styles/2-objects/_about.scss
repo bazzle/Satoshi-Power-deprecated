@@ -1,0 +1,11 @@
+.o-about{
+	&__inner{
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		p{
+			text-align: center;
+		}
+	}
+}
