@@ -32,6 +32,7 @@ INR : Indian Rupee
 ISK : Icelandic Króna
 JPY : Japanese Yen
 KRW : South Korean Won
+NGN : Nigerian Naira
 NZD : New Zealand Dollar
 PLN : Polish Złoty
 RON : Romanian Leu
@@ -42,3 +43,6 @@ THB : Thai Baht
 TRY : Turkish Lira
 TWD : New Taiwan Dollar
 USD : United States Dollar
+
+
+Deploys from https://github.com/bazzle/Satoshi-power-gh-pages
