@@ -1,4 +1,4 @@
-const allCurrencies = {
+const currencyReference = {
 	aed: {
 		priority: 100,
 		iso_code: "AED",
@@ -2719,4 +2719,4 @@ const allCurrencies = {
 	},
 };
 
-export default allCurrencies;
+export default currencyReference;

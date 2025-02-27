@@ -1,8 +1,8 @@
 import DomAddCurrency from './DomAddCurrency.js';
 import {container, currencyGrid} from "./Variables.js";
-import allCurrencies from './currencies.js';
+import currencyReference from './currencies.js';
 import Utilities from "./Utilities.js";
-console.log(allCurrencies);
+console.log(currencyReference);
 
 // Data
 const tickerFetchUrl = "https://blockchain.info/ticker";
@@ -24,7 +24,7 @@ async function DataFetchDisplay(){
 			// Set some variables
 			const itemObj = fetchedData[currencyItem];
 			const itemCode = itemObj.symbol.toLowerCase();
-			const curreencyAddDetails = allCurrencies[itemCode];
+			const curreencyAddDetails = currencyReference[itemCode];
 			// If matching object isn't found, skip it
 			if (curreencyAddDetails === undefined){
 				continue;
