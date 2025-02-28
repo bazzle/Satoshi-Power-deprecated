@@ -1,8 +1,8 @@
 import Utilities from "./Utilities.js";
-import {container, currencyGrid} from "./Variables.js";
 import DomPercentageBar from "./DomPercentageBar.js";
 
-// Adds currency to the DOM
+const container = document.getElementById('js-app');
+const currencyGrid = Utilities.buildElement('ul', 'o-currencygrid');
 
 function DomAddCurrency(arr){
 
