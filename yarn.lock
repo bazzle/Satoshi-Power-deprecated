@@ -475,6 +475,11 @@ cors@~2.8.5:
     object-assign "^4"
     vary "^1"
 
+currencies-map@^3.3.5:
+  version "3.3.5"
+  resolved "https://registry.yarnpkg.com/currencies-map/-/currencies-map-3.3.5.tgz#dd9020d4d544d15299dc32704741896479db3909"
+  integrity sha512-XjHaZ0y5n3gkKGuAZtpDTdTz9z6gq8TaY6wnodZ+MzkcZ18wgS7qeIPkxEF5jXOSTwfo8zq52Y5FtF7ZG0sLnw==
+
 date-fns@^2.30.0:
   version "2.30.0"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.30.0.tgz#f367e644839ff57894ec6ac480de40cae4b0f4d0"
