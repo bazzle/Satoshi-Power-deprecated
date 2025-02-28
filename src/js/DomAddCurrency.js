@@ -1,45 +1,37 @@
 import Utilities from "./Utilities.js";
-import {currencyGrid} from "./Variables.js";
+import {container, currencyGrid} from "./Variables.js";
 import DomPercentageBar from "./DomPercentageBar.js";
-import DomCurrencyInteractivity from "./DomCurrencyInteractivity.js";
 
 // Adds currency to the DOM
 
-function DomAddCurrency(obj){
-	const unitName = obj.unitName;
-	const unitPercentage = obj.unitPercentage;
-	const smallUnitName = obj.smallUnitName;
-	const smallUnitPercentage = obj.smallUnitPercentage;
-	const smallestUnitKilled = obj.smallestUnitKilled;
-	let itemMain;
+function DomAddCurrency(arr){
 
-	let itemTextString = unitPercentage < 1 ? `${unitName} <1%` : `${unitName} ${unitPercentage}%`;
-	let itemTextStringSmall = `${smallUnitName} ${smallUnitPercentage}%`;
+	container.append(currencyGrid);
 
-	const item = Utilities.buildElement('li', 'c-currencyitem');
-	const itemPercentageBar = DomPercentageBar(unitPercentage);
-	const itemPercentageBarSmallUnit = DomPercentageBar(smallUnitPercentage);
-	const iconContainer = Utilities.buildElement('div', 'c-currencyitem__icon');
-	itemMain = Utilities.buildElement('div', 'c-currencyitem__main');
-	const itemMainText = Utilities.buildElement('span', 'c-currencyitem__text');
-	itemMain.append(itemMainText);
-	itemMain.append(itemPercentageBarSmallUnit);
-	itemMain.append(iconContainer);
-	itemMainText.innerText = itemTextStringSmall;
-	item.append(itemMain);
-	if (smallestUnitKilled){
-		item.setAttribute('tabindex', 0);
-		item.classList.add('c-currencyitem--killed');
-		const itemSecondary = Utilities.buildElement('div','c-currencyitem__secondary');
-		const itemSecondaryText = Utilities.buildElement('span', 'c-currencyitem__text');
-		itemSecondary.append(itemSecondaryText);
-		itemSecondaryText.innerText = itemTextString;
-		itemSecondary.append(itemPercentageBar);
-		DomCurrencyInteractivity(item, itemMain, itemSecondary);
+	for(const currencyItem in arr){
+		const itemObj = arr[currencyItem];
+
+		// Set some variables
+		const name = itemObj.displayName;
+		const percentage = itemObj.displayPercentage;
+
+		// Create the parent item
+		const item = Utilities.buildElement('li', 'c-currencyitem');
+		itemObj.killed && item.classList.add('c-currencyitem--killed')
+		
+		// Add percentage bar
+		const itemPercentageBar = DomPercentageBar(itemObj.displayPercentage);
+		item.append(itemPercentageBar);
+
+		// Add main text
+		const itemTextString = percentage < 1 ? `${name} <1%` : `${name} ${percentage}%`;
+		const itemMainText = Utilities.buildElement('span', 'c-currencyitem__text');
+		itemMainText.innerText = itemTextString;
+		item.append(itemMainText);
+
+		// Add the parent item to the grid
+		currencyGrid.append(item);
 	}
-
-
-	currencyGrid.append(item);
 }
 
 export default DomAddCurrency;

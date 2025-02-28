@@ -1,8 +1,7 @@
 import DomAddCurrency from './DomAddCurrency.js';
-import {container, currencyGrid} from "./Variables.js";
 import currencyReference from './currencies.js';
 import Utilities from "./Utilities.js";
-console.log(currencyReference);
+// console.log(currencyReference);
 
 // Data
 const tickerFetchUrl = "https://blockchain.info/ticker";
@@ -54,6 +53,12 @@ async function DataFetchDisplay(){
 				itemObj.displayPercentage = Utilities.getPercentage(itemObj.displayPrice)
 				itemObj.displayName = itemObj.unitName
 			} else {
+				// As the sub unit name isn't prefixed by the country, add it here
+				let namePrefix = Utilities.removeLastWord(itemObj.unitName)
+				if (namePrefix === ""){
+					namePrefix = itemObj.unitName
+				}
+				itemObj.subUnitName = `${namePrefix} ${itemObj.subUnitName}`
 				// The display price will be the satprice multiplied by how many subunits make up the unit
 				itemObj.displayPrice = itemObj.satPrice * itemObj.subUnits
 				// Set percentage and if the percentage is over 200, we will show the main unit on the front-end
@@ -71,9 +76,13 @@ async function DataFetchDisplay(){
 
 			currenciesArr.push(itemObj);
 		}
+
+		currenciesArr.sort((a, b) => a.displayPercentage - b.displayPercentage);
+
 		console.log(currenciesArr);
-		container.append(currencyGrid);
-		// DomAddCurrency(item);
+		
+		
+		DomAddCurrency(currenciesArr);
 	}
 }
 
