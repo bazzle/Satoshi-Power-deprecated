@@ -746,6 +746,7 @@ svg, svg path {
   padding: 0.3rem;
 }
 .c-currencyitem__percentage-bar {
+  border: 2px solid black;
   position: absolute;
   top: 0;
   left: 0;
