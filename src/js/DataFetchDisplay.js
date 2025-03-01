@@ -46,7 +46,6 @@ async function DataFetchDisplay(){
 			itemObj.satPrice = itemObj.btcPrice / 100000000
 
 			// If the currency doesn't have a subunit, the display name and price is the main unit
-			console.log(itemObj);
 			if(
 				itemObj.subUnits === 1 ||
 				itemObj.subUnitName === null ||
@@ -57,6 +56,9 @@ async function DataFetchDisplay(){
 				itemObj.percentage = Utilities.getPercentage(itemObj.displayPrice)
 				itemObj.displayPercentage = Utilities.getPercentage(itemObj.displayPrice)
 				itemObj.displayName = itemObj.unitName
+				if(itemObj.displayPercentage > 100){
+					itemObj.mainUnitKilled = true
+				}
 			} else {
 				// As the sub unit name isn't prefixed by the country, add it here
 				let namePrefix
@@ -71,19 +73,21 @@ async function DataFetchDisplay(){
 				itemObj.subUnitName = `${namePrefix ? namePrefix : ''} ${itemObj.subUnitName}`
 				// The display price will be the satprice multiplied by how many subunits make up the unit
 				itemObj.displayPrice = itemObj.satPrice * itemObj.subUnits
-				// Set percentage and if the percentage is over 200, we will show the main unit on the front-end
+				// Set percentage and if the percentage is over 100, we will show the main unit on the front-end
 				itemObj.percentage = Utilities.getPercentage(itemObj.displayPrice)
-				if (itemObj.percentage > 200){
+				if (itemObj.percentage > 100){
 					itemObj.displayPrice = itemObj.satPrice
 					itemObj.displayPercentage = Utilities.getPercentage(itemObj.displayPrice)
 					itemObj.displayName = itemObj.unitName
-					itemObj.killed = true
+					itemObj.smallUnitKilled = true
+					if(itemObj.displayPercentage > 100){
+						itemObj.mainUnitKilled = true
+					}
 				} else {
 					itemObj.displayName = itemObj.subUnitName
 					itemObj.displayPercentage = Utilities.getPercentage(itemObj.displayPrice)
 				}
 			}
-			
 			currenciesArr.push(itemObj);
 		}
 

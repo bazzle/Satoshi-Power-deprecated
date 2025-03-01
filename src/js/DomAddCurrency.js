@@ -1,5 +1,6 @@
 import Utilities from "./Utilities.js";
 import DomPercentageBar from "./DomPercentageBar.js";
+import {createIcon, SkullSvg} from "./icons.js";
 
 const container = document.getElementById('js-app');
 const currencyGrid = Utilities.buildElement('ul', 'o-currencygrid');
@@ -17,7 +18,9 @@ function DomAddCurrency(arr){
 
 		// Create the parent item
 		const item = Utilities.buildElement('li', 'c-currencyitem');
-		itemObj.killed && item.classList.add('c-currencyitem--killed')
+		// Add some classes
+		itemObj.smallUnitKilled && item.classList.add('c-currencyitem--smallUnitKilled')
+		itemObj.mainUnitKilled && item.classList.add('c-currencyitem--mainUnitKilled')
 		
 		// Add percentage bar
 		const itemPercentageBar = DomPercentageBar(itemObj.displayPercentage);
@@ -31,6 +34,16 @@ function DomAddCurrency(arr){
 
 		// Add the parent item to the grid
 		currencyGrid.append(item);
+
+		// Add icons
+		const statusContainer = Utilities.buildElement('div', 'c-currencyitem__status-container');
+		item.append(statusContainer);
+		if (itemObj.smallUnitKilled){
+			statusContainer.append(createIcon(SkullSvg));
+		}
+		if (itemObj.mainUnitKilled){
+			statusContainer.append(createIcon(SkullSvg));
+		}
 	}
 }
 
