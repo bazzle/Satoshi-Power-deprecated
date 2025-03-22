@@ -1,0 +1,8 @@
+{
+	"compilerOptions": {
+		"removeComments": true,
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"skipLibCheck": true
+	}
+}

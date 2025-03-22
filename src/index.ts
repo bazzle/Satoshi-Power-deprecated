@@ -1,5 +1,5 @@
 // Styles
 import './styles/main.scss';
 
-// JS
-import './js/main.js';
+// TS
+import './ts/main.ts';
