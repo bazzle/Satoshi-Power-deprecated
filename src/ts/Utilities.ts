@@ -1,13 +1,13 @@
 const Utilities = {
-    buildElement : (ElementType, elementClassName) => {
+    buildElement : (ElementType:string, elementClassName:string) => {
         const domElement = document.createElement(ElementType);
         domElement.classList.add(elementClassName);
         return domElement;
     },
-    getPercentage : (unitPrice) => {
+    getPercentage : (unitPrice:number) => {
         return Math.floor(unitPrice * 100);
     },
-	removeLastWord : (str) => {
+	removeLastWord : (str:string) => {
 		return str.trim().split(" ").slice(0, -1).join(" ");
 	}
 }

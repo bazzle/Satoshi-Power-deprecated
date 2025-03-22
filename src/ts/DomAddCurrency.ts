@@ -1,17 +1,21 @@
-import Utilities from "./Utilities.js";
-import DomPercentageBar from "./DomPercentageBar.js";
-import {createIcon, SkullSvg} from "./icons.js";
+import Utilities from "./Utilities";
+import DomPercentageBar from "./DomPercentageBar";
+import {createIcon, SkullSvg} from "./icons";
 
-const container = document.getElementById('js-app');
-const currencyGrid = Utilities.buildElement('ul', 'o-currencygrid');
+import type { ItemObj } from './DataFetchDisplay'
 
-function DomAddCurrency(arr){
+function DomAddCurrency(arr: ItemObj[]){
+
+	const container = document.getElementById('js-app');
+	const currencyGrid = Utilities.buildElement('ul', 'o-currencygrid');
+	
+	if (!container || !currencyGrid) return
 
 	container.append(currencyGrid);
 
 	for(const currencyItem in arr){
-		const itemObj = arr[currencyItem];
-
+		const itemObj:ItemObj = arr[currencyItem];
+		console.log(typeof itemObj)
 		// Set some variables
 		const name = itemObj.displayName;
 		const percentage = itemObj.displayPercentage;

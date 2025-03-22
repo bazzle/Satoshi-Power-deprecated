@@ -1,40 +1,62 @@
-import DomAddCurrency from './DomAddCurrency.js';
-import currencyReference from './currencies.js';
-import Utilities from "./Utilities.js";
-// console.log(currencyReference);
+import DomAddCurrency from './DomAddCurrency';
+import currencyReference from './currencies';
+import Utilities from "./Utilities";
+
+type NotOutput = {
+	satPrice : number,
+	sell : number,
+	percentage : number,
+	[key: string]: unknown
+}
+
+export type ItemObj = {
+	btcPrice : number,
+	displayName : string,
+	displayPercentage : number,
+	displayPrice : number,
+	smallUnitKilled : boolean,
+	subUnitName : string,
+	subUnits : number,
+	symbol : string,
+	unitName : string,
+} & Partial<NotOutput>
 
 // Data
 const tickerFetchUrl = "https://blockchain.info/ticker";
-let fetchedData;
+let fetchedData :any
 
 async function DataFetchDisplay(){
 	// Fetch data
 	try {
 		// fetch data file, then parse it to usable json
-		fetchedData = await fetch(tickerFetchUrl);
-		fetchedData = await fetchedData.json();
+		let response = await fetch(tickerFetchUrl);
+		fetchedData = await response.json();
 	} catch (error) {
 		console.log('No data');
 	} finally {
 		// Initialise array
 		let currenciesArr = [];
+
 		// Start loop to populate array
 		for (const currencyItem in fetchedData){
+			
 			// Set some variables
-			const itemObj = fetchedData[currencyItem];
+			let itemObj:ItemObj = fetchedData[currencyItem];
 			const itemCode = itemObj.symbol.toLowerCase();
-			const curreencyAddDetails = currencyReference[itemCode];
+			const currencyAddDetails = currencyReference[itemCode];
+
 			// If matching object isn't found, skip it
-			if (curreencyAddDetails === undefined){
+			if (currencyAddDetails === undefined){
 				continue;
 			}
+
 			// Add new data to the object, from the currency list
 			const newData = {
-				'unitName' : curreencyAddDetails.name,
-				'symbol' : curreencyAddDetails.symbol,
-				'subUnitName' : curreencyAddDetails.subunit,
-				'subUnits' : curreencyAddDetails.subunit_to_unit,
-				'btcPrice' : Math.round(itemObj.sell)
+				'unitName' : currencyAddDetails.name,
+				'symbol' : currencyAddDetails.symbol,
+				'subUnitName' : currencyAddDetails.subunit,
+				'subUnits' : currencyAddDetails.subunit_to_unit,
+				'btcPrice' : itemObj.sell ? Math.round(itemObj.sell) : 0
 			}
 			Object.assign(itemObj, newData);
 			// Tidy up the object by deleting some keys we don't need
@@ -92,7 +114,6 @@ async function DataFetchDisplay(){
 		}
 
 		currenciesArr.sort((a, b) => a.displayPercentage - b.displayPercentage);
-		
 		
 		DomAddCurrency(currenciesArr);
 	}

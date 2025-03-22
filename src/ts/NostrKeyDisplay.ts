@@ -1,4 +1,4 @@
-import Utilities from './Utilities.js';
+import Utilities from './Utilities';
 
 function NostrKeyDisplay(){
 
@@ -15,14 +15,9 @@ function NostrKeyDisplay(){
     const nostrContainer = document.getElementById('js-nostr-key');
     const nostrButton = document.getElementById('js-nostr-copy');
     const copyIcon = document.querySelector('.js-copy-icon');
-    
-    nostrContainer.innerText = nostrPubKeyDisplay;
-    
-    nostrButton.addEventListener('click', () => {
-        copyKey();
-    });
 
     function copyFeedback(){
+		if (!nostrButton || !copyIcon) return
         nostrButton.append(copySuccessMessage);
         copyIcon.remove();
         console.log('copied');
@@ -35,13 +30,18 @@ function NostrKeyDisplay(){
     function copyKey(){
         navigator.clipboard.writeText(nostrPubKey)
         .then(function() {
-            console.log('copied');
             copyFeedback();
         })
         .catch(function(err) {
             console.error('Failed to copy text to clipboard: ', err);
         });
     }
+
+	if (!nostrContainer || !nostrButton) return
+	nostrContainer.innerText = nostrPubKeyDisplay;
+	nostrButton.addEventListener('click', () => {
+		copyKey();
+	});
 }
 
 

@@ -1,4 +1,28 @@
-const currencyReference = {
+type NotImportant = {
+	priority: number;
+	iso_code: string;
+	name: string;
+	disambiguate_symbol: string;
+	alternate_symbols: string[];
+	subunit: string | null;
+	subunit_to_unit: number;
+	symbol_first: boolean;
+	format: string;
+	html_entity: string;
+	decimal_mark: string;
+	thousands_separator: string;
+	iso_numeric: string;
+	smallest_denomination: number | null;
+};
+type CurrencyData = {
+	symbol: string;
+} & Partial<NotImportant>
+
+type CurrencyReference = {
+	[currencyCode: string]: CurrencyData;
+};
+
+const currencyReference: CurrencyReference = {
 	aed: {
 		priority: 100,
 		iso_code: "AED",
@@ -2635,7 +2659,7 @@ const currencyReference = {
 		decimal_mark: ".",
 		thousands_separator: ",",
 		iso_numeric: "962",
-		smallest_denomination: "",
+		smallest_denomination: null,
 	},
 	xts: {
 		priority: 100,
@@ -2651,7 +2675,7 @@ const currencyReference = {
 		decimal_mark: ".",
 		thousands_separator: ",",
 		iso_numeric: "963",
-		smallest_denomination: "",
+		smallest_denomination: null,
 	},
 	yer: {
 		priority: 100,
@@ -2667,7 +2691,7 @@ const currencyReference = {
 		decimal_mark: ".",
 		thousands_separator: ",",
 		iso_numeric: "886",
-		smallest_denomination: 100,
+		smallest_denomination: null,
 	},
 	zar: {
 		priority: 100,

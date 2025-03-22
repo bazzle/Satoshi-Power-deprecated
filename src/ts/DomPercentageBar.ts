@@ -1,6 +1,6 @@
-import Utilities from "./Utilities.js";
+import Utilities from "./Utilities";
 
-const DomPercentageBar = (percentage) => {
+const DomPercentageBar = (percentage:number):HTMLElement => {
 	const width = percentage > 100 ? 100 : percentage;
 	const element = Utilities.buildElement('span', 'c-currencyitem__percentage-bar');
 	element.style.width = width + '%';

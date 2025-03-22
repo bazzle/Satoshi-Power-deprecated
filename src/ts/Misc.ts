@@ -1,7 +1,8 @@
-import {createIcon, SkullSvg} from "./icons.js";
+import {createIcon, SkullSvg} from "./icons";
 
 function skullInsert(){
-	skullInsert = document.querySelectorAll('.insertSkull')
+	const skullInsert = document.querySelectorAll('.insertSkull')
+	if (!skullInsert) return
 	skullInsert.forEach(item => {
 		item.append(createIcon(SkullSvg));
 	});

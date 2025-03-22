@@ -1,4 +1,4 @@
-import Utilities from './Utilities.js';
+import Utilities from './Utilities';
 
 function CookieNotice(){
 
@@ -16,9 +16,13 @@ function CookieNotice(){
 
 	// Analytics code
 	function googleAnalytics(){
+		// @ts-ignore
 		window.dataLayer = window.dataLayer || [];
+		// @ts-ignore
 		function gtag(){dataLayer.push(arguments);}
+		// @ts-ignore
 		gtag('js', new Date());
+		// @ts-ignore
 		gtag('config', 'G-YD0LB3QL6X');
 	}
 
@@ -27,13 +31,15 @@ function CookieNotice(){
 	if (isCookiesAccepted === 'true') {
 		googleAnalytics();
 	} else {
-		// Add element to DOM and add event listener
-		main.append(cookieNotice);
-		cookieNoticeButton.addEventListener('click',() => {
-			localStorage.setItem('cookies_accepted', 'true');
-			googleAnalytics();
-			cookieNotice.remove();
-		})
+		if (main){
+			// Add element to DOM and add event listener
+			main.append(cookieNotice);
+			cookieNoticeButton.addEventListener('click',() => {
+				localStorage.setItem('cookies_accepted', 'true');
+				googleAnalytics();
+				cookieNotice.remove();
+			})
+		}
 	}
 }
 
