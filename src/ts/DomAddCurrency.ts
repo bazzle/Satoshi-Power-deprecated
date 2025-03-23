@@ -15,7 +15,6 @@ function DomAddCurrency(arr: ItemObj[]){
 
 	for(const currencyItem in arr){
 		const itemObj:ItemObj = arr[currencyItem];
-		console.log(typeof itemObj)
 		// Set some variables
 		const name = itemObj.displayName;
 		const percentage = itemObj.displayPercentage;

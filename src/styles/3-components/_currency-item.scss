@@ -39,4 +39,18 @@
 		outline: 2px solid $color-focus;
 		border-color: transparent;
 	}
+
+	&--mainUnitKilled{
+		.c-currencyitem{
+			&__percentage-bar{
+				background-color: $color-bitcoin;
+			}
+			&__text{
+				color: black;
+			}
+		}
+		.icon{
+			color: black;
+		}
+	}
 }
