@@ -3,7 +3,7 @@ import terser from '@rollup/plugin-terser';
 import copy from 'rollup-plugin-copy';
 
 export default {
-    input: 'src/index.js',
+    input: 'assets/js/main.js',
     output: {
         file: 'dist/assets/js/main.js',
         format: 'iife', // Suitable for <script> tags in browsers
