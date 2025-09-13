@@ -1,5 +1,11 @@
 # Satoshi-Power
 
+# ⚠️ Archived – No Longer Maintained
+
+This repository was archived on **13 Sept 2025**.  
+
+Final marker tag: [`archived-2025`](../../releases/tag/archived-2025)
+
 ## About
 
 Compares the price of a single satoshi with that of the smallest units of each fiat currency.
