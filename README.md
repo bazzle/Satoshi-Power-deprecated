@@ -1,6 +1,6 @@
 # Satoshi-Power
 
-# ⚠️ Archived – No Longer Maintained
+## ⚠️ Archived – No Longer Maintained
 
 This repository was archived on **13 Sept 2025**.  
 
