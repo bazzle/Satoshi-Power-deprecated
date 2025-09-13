@@ -4,7 +4,7 @@
 
 This repository was archived on **13 Sept 2025**.  
 
-Final marker tag: [`archived-2025`](../../releases/tag/archived-2025)
+Please visit [Satoshi Power](https://github.com/bazzle/satoshi-power) for the new version
 
 ## About
 
